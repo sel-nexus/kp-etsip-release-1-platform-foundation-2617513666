@@ -3979,11 +3979,28 @@
       "_origin": "ast"
     },
     {
+      "id": "backend_tests_test_admin_py_parametrize",
+      "label": "parametrize",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_test_user_creation_requires_password_without_writes",
+      "label": "test_user_creation_requires_password_without_writes()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L60",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "backend_tests_test_admin_test_user_mutations_scope_sessions_and_history",
       "label": "test_user_mutations_scope_sessions_and_history()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L59",
+      "source_location": "L76",
       "_callable": true,
       "_origin": "ast"
     },
@@ -3992,7 +4009,7 @@
       "label": "test_role_edits_hard_restrictions_and_audit_export()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L89",
+      "source_location": "L113",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4001,7 +4018,7 @@
       "label": "test_direct_service_and_audit_transaction_rollback()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L114",
+      "source_location": "L140",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4010,7 +4027,7 @@
       "label": "test_specific_audit_events_and_history()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L131",
+      "source_location": "L157",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4019,7 +4036,7 @@
       "label": "test_administrator_permission_cannot_be_removed()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L164",
+      "source_location": "L192",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4028,7 +4045,7 @@
       "label": "test_audit_export_filter_snapshot_and_event()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L178",
+      "source_location": "L207",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4037,7 +4054,7 @@
       "label": "test_export_limit_and_audit_failure_are_atomic()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L206",
+      "source_location": "L236",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4046,7 +4063,7 @@
       "label": "test_specific_audit_failure_rolls_back_mutations()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L227",
+      "source_location": "L257",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4055,7 +4072,7 @@
       "label": "test_concurrent_administrator_demotions_keep_one_active()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L250",
+      "source_location": "L280",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4064,7 +4081,43 @@
       "label": "test_user_transaction_retries_real_write_conflict()",
       "file_type": "code",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L268",
+      "source_location": "L298",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_test_user_detail_auth_not_found_and_missing_mutations",
+      "label": "test_user_detail_auth_not_found_and_missing_mutations()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L316",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_test_role_update_missing_valid_id_does_not_mutate",
+      "label": "test_role_update_missing_valid_id_does_not_mutate()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L352",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_test_user_required_fields_validation_is_atomic",
+      "label": "test_user_required_fields_validation_is_atomic()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L374",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_test_role_fields_validation_is_atomic",
+      "label": "test_role_fields_validation_is_atomic()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L404",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4109,83 +4162,123 @@
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_60",
+      "id": "backend_tests_test_admin_rationale_61",
+      "label": "Reject absent creation credentials without changing users or audit history.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L61",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_rationale_77",
       "label": "Persist assignments, enforce scope and retain audit history after hard deletion.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L60",
+      "source_location": "L77",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_90",
+      "id": "backend_tests_test_admin_rationale_114",
       "label": "Role permission grants cannot elevate hard restrictions; CSV neutralizes\u2026",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L90",
+      "source_location": "L114",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_115",
+      "id": "backend_tests_test_admin_rationale_141",
       "label": "Prove audit failure rolls back the associated account mutation.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L115",
+      "source_location": "L141",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_132",
+      "id": "backend_tests_test_admin_rationale_158",
       "label": "Record actual role and permission changes, without leaking credentials.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L132",
+      "source_location": "L158",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_165",
+      "id": "backend_tests_test_admin_rationale_193",
       "label": "Prevent an administrative lockout without writing an audit event.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L165",
+      "source_location": "L193",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_179",
+      "id": "backend_tests_test_admin_rationale_208",
       "label": "Filter by inclusive UTC dates and log exports outside their own snapshot.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L179",
+      "source_location": "L208",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_207",
+      "id": "backend_tests_test_admin_rationale_237",
       "label": "Reject oversized exports and do not return data if the audit insert fails.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L207",
+      "source_location": "L237",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_228",
+      "id": "backend_tests_test_admin_rationale_258",
       "label": "A failed specialized event aborts both the change and generic edit event.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L228",
+      "source_location": "L258",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_251",
+      "id": "backend_tests_test_admin_rationale_281",
       "label": "Concurrent requests retry conflicts and cannot remove both administrators.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L251",
+      "source_location": "L281",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_admin_rationale_269",
+      "id": "backend_tests_test_admin_rationale_299",
       "label": "A concurrent MongoDB lock conflict is retried after its owner commits.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L269",
+      "source_location": "L299",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_rationale_317",
+      "label": "Read a user only as admin and reject missing valid IDs without mutations.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L317",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_rationale_353",
+      "label": "An absent role cannot be updated or audited.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L353",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_rationale_375",
+      "label": "Reject each missing, oversized or wrong-type field on create and update.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L375",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_admin_rationale_405",
+      "label": "Validate role fields separately before create or edit can change state.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L405",
       "_origin": "ast"
     },
     {
@@ -4201,7 +4294,7 @@
       "label": "headers()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4210,7 +4303,7 @@
       "label": "portfolio()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L22",
+      "source_location": "L23",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4219,7 +4312,7 @@
       "label": "test_crud_filter_pagination_and_audit()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L29",
+      "source_location": "L30",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4228,7 +4321,78 @@
       "label": "test_validation_missing_and_conflicts()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L55",
+      "source_location": "L61",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_py_parametrize",
+      "label": "parametrize",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_required_application_fields_are_individually_required",
+      "label": "test_required_application_fields_are_individually_required()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L78",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_whitespace_application_name_is_rejected_without_writes",
+      "label": "test_whitespace_application_name_is_rejected_without_writes()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L92",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_application_text_length_boundary",
+      "label": "test_application_text_length_boundary()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L118",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_application_rejects_mongo_operator_objects",
+      "label": "test_application_rejects_mongo_operator_objects()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L137",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_application_search_treats_regex_metacharacters_literally",
+      "label": "test_application_search_treats_regex_metacharacters_literally()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L157",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_application_script_text_round_trips_as_json_data",
+      "label": "test_application_script_text_round_trips_as_json_data()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L173",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_application_missing_valid_id_put_delete_are_atomic",
+      "label": "test_application_missing_valid_id_put_delete_are_atomic()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L194",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4237,7 +4401,7 @@
       "label": "test_scope_permissions_and_safe_export()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L71",
+      "source_location": "L210",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4246,7 +4410,7 @@
       "label": "test_service_audit_failure_rolls_back()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L105",
+      "source_location": "L251",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4255,7 +4419,7 @@
       "label": "test_shared_guard_conflicts_with_delete_and_cascade()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L124",
+      "source_location": "L270",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4264,7 +4428,52 @@
       "label": "test_concurrent_create_or_move_against_portfolio_deletion()",
       "file_type": "code",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L143",
+      "source_location": "L289",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_save_duplicate_name_returns_conflict_without_writes",
+      "label": "test_save_duplicate_name_returns_conflict_without_writes()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L310",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_save_missing_target_portfolio_returns_404_without_writes",
+      "label": "test_save_missing_target_portfolio_returns_404_without_writes()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L334",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "label": "test_save_propagates_non_name_duplicate_key_and_rolls_back()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L357",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_non_name_unique_collision_returns_http_500_without_writes",
+      "label": "test_non_name_unique_collision_returns_http_500_without_writes()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L381",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_test_save_authorization_and_scope_fail_closed_without_writes",
+      "label": "test_save_authorization_and_scope_fail_closed_without_writes()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L412",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4277,67 +4486,163 @@
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_16",
+      "id": "backend_tests_test_applications_rationale_17",
       "label": "Authenticate a seeded account.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_23",
+      "id": "backend_tests_test_applications_rationale_24",
       "label": "Create a portfolio and return its identifier.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_30",
+      "id": "backend_tests_test_applications_rationale_31",
       "label": "Persist complete fields, filter, paginate, update and delete with audit.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_56",
+      "id": "backend_tests_test_applications_rationale_62",
       "label": "Reject invalid enums, references, numeric boundaries and query limits.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L56",
+      "source_location": "L62",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_72",
+      "id": "backend_tests_test_applications_rationale_79",
+      "label": "Reject each missing required field without creating inventory or audit entries.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L79",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_93",
+      "label": "Reject whitespace-only names on create and edit without changing MongoDB.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L93",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_119",
+      "label": "Accept the documented maximum and reject one extra character atomically.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L119",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_138",
+      "label": "Reject operator objects rather than interpreting them as query or update\u2026",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L138",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_158",
+      "label": "A regex-looking string matches only the name containing those characters.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L158",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_174",
+      "label": "Return untrusted text as JSON, not HTML; UI escaping is a separate concern.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L174",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_195",
+      "label": "A valid absent ID produces 404 and no inventory, guard or audit changes.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L195",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_211",
       "label": "Enforce hard limits and live role changes on reads, writes and exports.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L72",
+      "source_location": "L211",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_106",
+      "id": "backend_tests_test_applications_rationale_252",
       "label": "Keep application state and guard unchanged when audit insertion fails.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L106",
+      "source_location": "L252",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_125",
+      "id": "backend_tests_test_applications_rationale_271",
       "label": "Demonstrate transactional guard conflicts and verify deletion leaves no orphan.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L125",
+      "source_location": "L271",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_applications_rationale_144",
+      "id": "backend_tests_test_applications_rationale_290",
       "label": "Race real application writes with cascades and require no dangling references.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L144",
+      "source_location": "L290",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_311",
+      "label": "Both save paths translate the name index violation and roll back the guard.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L311",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_335",
+      "label": "A valid but absent destination is distinguished from an absent application.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L335",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_358",
+      "label": "A real unique-index failure on another field is not mislabeled as a name\u2026",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L358",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_382",
+      "label": "An unrelated Mongo index collision is not exposed or translated to a name\u2026",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L382",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_applications_rationale_413",
+      "label": "Deny unauthorized writes at both the source and destination scope boundaries.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L413",
       "_origin": "ast"
     },
     {
@@ -4384,7 +4689,7 @@
       "label": "test_profile_and_password_persist_validate_and_revoke()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L66",
+      "source_location": "L70",
       "_callable": true,
       "_origin": "ast",
       "community": 8
@@ -4394,26 +4699,25 @@
       "label": "test_service_login_persists_timestamp_and_audit()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L85",
+      "source_location": "L93",
       "_callable": true,
       "_origin": "ast",
       "community": 0
     },
     {
-      "id": "parametrize",
+      "id": "backend_tests_test_auth_py_parametrize",
       "label": "parametrize",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "_origin": "ast",
-      "community": 0
+      "_origin": "ast"
     },
     {
       "id": "backend_tests_test_auth_test_service_login_rejects_invalid_credentials_and_audits",
       "label": "test_service_login_rejects_invalid_credentials_and_audits()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L103",
+      "source_location": "L111",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4423,7 +4727,7 @@
       "label": "test_service_login_rejects_account_changed_after_lookup()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L119",
+      "source_location": "L127",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4433,7 +4737,7 @@
       "label": "by_email()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L124",
+      "source_location": "L132",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4443,7 +4747,7 @@
       "label": "test_service_profile_persists_and_rejects_inactive_account()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L138",
+      "source_location": "L146",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4453,7 +4757,7 @@
       "label": "test_service_password_changes_persist_and_revoke_old_tokens()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L155",
+      "source_location": "L163",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4463,7 +4767,7 @@
       "label": "test_service_password_rejects_incorrect_same_and_stale_changes()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L171",
+      "source_location": "L179",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4473,7 +4777,7 @@
       "label": "test_service_logout_persists_revocation_until_expiry()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L190",
+      "source_location": "L198",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -4483,7 +4787,7 @@
       "label": "test_auth_rejects_expired_and_malformed_signed_tokens()",
       "file_type": "code",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L205",
+      "source_location": "L213",
       "_callable": true,
       "_origin": "ast",
       "community": 19
@@ -4525,85 +4829,76 @@
       "community": 8
     },
     {
-      "id": "backend_tests_test_auth_rationale_67",
+      "id": "backend_tests_test_auth_rationale_71",
       "label": "Persist preferences and enforce current-password and password rules.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L67",
-      "_origin": "ast",
-      "community": 8
+      "source_location": "L71",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_86",
+      "id": "backend_tests_test_auth_rationale_94",
       "label": "Authenticate directly and persist the successful attempt.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L86",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L94",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_104",
+      "id": "backend_tests_test_auth_rationale_112",
       "label": "Reject unknown, incorrect, and inactive accounts without exposing credentials.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L104",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L112",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_120",
+      "id": "backend_tests_test_auth_rationale_128",
       "label": "Reject a login when the account is deactivated before its transactional update.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L120",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L128",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_139",
+      "id": "backend_tests_test_auth_rationale_147",
       "label": "Update a preference with an audit event only for an active account.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L139",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L147",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_156",
+      "id": "backend_tests_test_auth_rationale_164",
       "label": "Persist a new hash and token version, invalidating an existing session.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L156",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L164",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_172",
+      "id": "backend_tests_test_auth_rationale_180",
       "label": "Reject invalid passwords and stale writes without changing the hash or audit.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L172",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L180",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_191",
+      "id": "backend_tests_test_auth_rationale_199",
       "label": "Store token revocation idempotently and reject the revoked session.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L191",
-      "_origin": "ast",
-      "community": 0
+      "source_location": "L199",
+      "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_auth_rationale_206",
+      "id": "backend_tests_test_auth_rationale_214",
       "label": "Reject expired, incomplete, incorrectly typed, and incorrectly signed claims.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L206",
-      "_origin": "ast",
-      "community": 19
+      "source_location": "L214",
+      "_origin": "ast"
     },
     {
       "id": "backend_tests_test_dashboard",
@@ -4707,6 +5002,73 @@
       "_origin": "ast"
     },
     {
+      "id": "backend_tests_test_integration",
+      "label": "test_integration.py",
+      "file_type": "code",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_authenticate",
+      "label": "authenticate()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_test_inventory_changes_flow_to_dashboard_reports_audit_and_scope",
+      "label": "test_inventory_changes_flow_to_dashboard_reports_audit_and_scope()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_test_failed_inventory_reference_does_not_leak_into_downstream_views",
+      "label": "test_failed_inventory_reference_does_not_leak_into_downstream_views()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L58",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_rationale_1",
+      "label": "Exercise cross-feature inventory, insight, audit and permission flows.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_rationale_7",
+      "label": "Return the bearer header for a seeded account.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_rationale_14",
+      "label": "Carry changes across inventory, insight, reporting and access boundaries.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_integration_rationale_59",
+      "label": "Reject an invalid reference without creating inventory or misleading insights.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L59",
+      "_origin": "ast"
+    },
+    {
       "id": "backend_tests_test_portfolios",
       "label": "test_portfolios.py",
       "file_type": "code",
@@ -4737,7 +5099,7 @@
       "label": "test_invalid_input_and_missing()",
       "file_type": "code",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L45",
+      "source_location": "L55",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4746,7 +5108,7 @@
       "label": "test_scope_and_live_permissions()",
       "file_type": "code",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L57",
+      "source_location": "L67",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4755,7 +5117,42 @@
       "label": "test_direct_service_and_transaction_rollback()",
       "file_type": "code",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L83",
+      "source_location": "L100",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_test_missing_portfolio_put_delete_do_not_mutate_state",
+      "label": "test_missing_portfolio_put_delete_do_not_mutate_state()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L120",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_test_portfolio_search_treats_regex_as_literal",
+      "label": "test_portfolio_search_treats_regex_as_literal()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L138",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_py_parametrize",
+      "label": "parametrize",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_test_portfolio_field_validation_preserves_data_and_audit",
+      "label": "test_portfolio_field_validation_preserves_data_and_audit()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L160",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4784,27 +5181,51 @@
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_portfolios_rationale_46",
+      "id": "backend_tests_test_portfolios_rationale_56",
       "label": "Reject malformed inputs, identifiers and invalid pagination.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L46",
+      "source_location": "L56",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_portfolios_rationale_58",
+      "id": "backend_tests_test_portfolios_rationale_68",
       "label": "Constrain leaders, deny elevated roles and apply permission changes immediately.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L58",
+      "source_location": "L68",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_portfolios_rationale_84",
+      "id": "backend_tests_test_portfolios_rationale_101",
       "label": "Exercise service policy and prove audit failure rolls back a cascade.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L84",
+      "source_location": "L101",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_rationale_121",
+      "label": "A valid nonexistent portfolio ID returns 404 without audit or data changes.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L121",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_rationale_139",
+      "label": "Metacharacters in search never broaden MongoDB results.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L139",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_portfolios_rationale_161",
+      "label": "Reject invalid fields individually on both creation and replacement.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L161",
       "_origin": "ast"
     },
     {
@@ -4838,7 +5259,7 @@
       "label": "test_scope_readonly_and_live_permissions()",
       "file_type": "code",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L54",
+      "source_location": "L62",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4847,7 +5268,7 @@
       "label": "test_export_bound_and_audit_failure()",
       "file_type": "code",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L82",
+      "source_location": "L99",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4856,7 +5277,7 @@
       "label": "test_actual_seed_counts_validity_and_idempotence()",
       "file_type": "code",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L105",
+      "source_location": "L122",
       "_callable": true,
       "_origin": "ast"
     },
@@ -4885,27 +5306,27 @@
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_reports_rationale_55",
+      "id": "backend_tests_test_reports_rationale_63",
       "label": "Keep hidden portfolio data out of both representations and enforce hard limits.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L55",
+      "source_location": "L63",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_reports_rationale_83",
+      "id": "backend_tests_test_reports_rationale_100",
       "label": "Reject oversized exports and fail closed if audit cannot be committed.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L83",
+      "source_location": "L100",
       "_origin": "ast"
     },
     {
-      "id": "backend_tests_test_reports_rationale_106",
+      "id": "backend_tests_test_reports_rationale_123",
       "label": "Run the actual seeder twice, preserving renames, edits and leader scope.",
       "file_type": "rationale",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L106",
+      "source_location": "L123",
       "_origin": "ast"
     },
     {
@@ -4950,10 +5371,34 @@
       "_origin": "ast"
     },
     {
+      "id": "frontend_e2e_preflight",
+      "label": "preflight.mjs",
+      "file_type": "code",
+      "source_file": "frontend/e2e/preflight.mjs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_e2e_reports_spec",
       "label": "reports.spec.ts",
       "file_type": "code",
       "source_file": "frontend/e2e/reports.spec.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_e2e_responsive_loading_spec",
+      "label": "responsive-loading.spec.ts",
+      "file_type": "code",
+      "source_file": "frontend/e2e/responsive-loading.spec.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_e2e_security_journeys_spec",
+      "label": "security-journeys.spec.ts",
+      "file_type": "code",
+      "source_file": "frontend/e2e/security-journeys.spec.ts",
       "source_location": "L1",
       "_origin": "ast"
     },
@@ -5408,6 +5853,14 @@
       "community": 3
     },
     {
+      "id": "frontend_playwright_config_frontendurl",
+      "label": "frontendURL",
+      "file_type": "code",
+      "source_file": "frontend/playwright.config.ts",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_postcss_config",
       "label": "postcss.config.cjs",
       "file_type": "code",
@@ -5429,7 +5882,7 @@
       "label": "admin",
       "file_type": "code",
       "source_file": "frontend/src/admin/Administration.test.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast"
     },
     {
@@ -5437,7 +5890,7 @@
       "label": "page()",
       "file_type": "code",
       "source_file": "frontend/src/admin/Administration.test.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "_callable": true,
       "_origin": "ast"
     },
@@ -5472,7 +5925,7 @@
       "label": "saveUser()",
       "file_type": "code",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L40",
+      "source_location": "L43",
       "_callable": true,
       "_origin": "ast"
     },
@@ -5481,7 +5934,7 @@
       "label": "saveRole()",
       "file_type": "code",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L44",
+      "source_location": "L47",
       "_callable": true,
       "_origin": "ast"
     },
@@ -5490,7 +5943,7 @@
       "label": "remove()",
       "file_type": "code",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L49",
+      "source_location": "L52",
       "_callable": true,
       "_origin": "ast"
     },
@@ -5702,7 +6155,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L62",
+      "source_location": "L73",
       "_callable": true,
       "_origin": "ast",
       "community": 4
@@ -5892,7 +6345,7 @@
       "label": "user",
       "file_type": "code",
       "source_file": "frontend/src/auth/Login.test.tsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "_origin": "ast",
       "community": 4
     },
@@ -6213,6 +6666,16 @@
       "file_type": "code",
       "source_file": "frontend/src/reports/Reports.test.tsx",
       "source_location": "L1",
+      "metadata": {
+        "unresolved_calls": [
+          {
+            "callee": "readAsText",
+            "receiver_type": "FileReader",
+            "lang": "typescript",
+            "line": "L74"
+          }
+        ]
+      },
       "_origin": "ast"
     },
     {
@@ -14415,12 +14878,33 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_admin_test_user_creation_requires_password_without_writes",
+      "target": "backend_tests_test_admin_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin",
+      "target": "backend_tests_test_admin_test_user_creation_requires_password_without_writes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_admin",
       "target": "backend_tests_test_admin_test_user_mutations_scope_sessions_and_history",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L59",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14430,7 +14914,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L89",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14440,7 +14924,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L114",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14450,7 +14934,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L131",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14460,7 +14944,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L164",
+      "source_location": "L192",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14470,7 +14954,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L178",
+      "source_location": "L207",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14480,7 +14964,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L206",
+      "source_location": "L236",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14490,7 +14974,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L227",
+      "source_location": "L257",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14500,7 +14984,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L250",
+      "source_location": "L280",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14510,7 +14994,69 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L268",
+      "source_location": "L298",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin",
+      "target": "backend_tests_test_admin_test_user_detail_auth_not_found_and_missing_mutations",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L316",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin",
+      "target": "backend_tests_test_admin_test_role_update_missing_valid_id_does_not_mutate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L352",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_user_required_fields_validation_is_atomic",
+      "target": "backend_tests_test_admin_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L365",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin",
+      "target": "backend_tests_test_admin_test_user_required_fields_validation_is_atomic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L374",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_role_fields_validation_is_atomic",
+      "target": "backend_tests_test_admin_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L397",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin",
+      "target": "backend_tests_test_admin_test_role_fields_validation_is_atomic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L404",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14559,13 +15105,35 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_admin_test_user_creation_requires_password_without_writes",
+      "target": "backend_tests_test_admin_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_user_creation_requires_password_without_writes",
+      "target": "backend_tests_test_admin_account",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_admin_test_user_mutations_scope_sessions_and_history",
       "target": "backend_tests_test_admin_login",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L62",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14576,7 +15144,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L65",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14587,7 +15155,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L92",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14598,7 +15166,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L119",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14609,7 +15177,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L134",
+      "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14620,7 +15188,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L136",
+      "source_location": "L162",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14631,7 +15199,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L167",
+      "source_location": "L195",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14642,7 +15210,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L181",
+      "source_location": "L210",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14653,7 +15221,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L209",
+      "source_location": "L239",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14664,7 +15232,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L232",
+      "source_location": "L262",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14675,7 +15243,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L253",
+      "source_location": "L283",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14686,7 +15254,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L254",
+      "source_location": "L284",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14697,7 +15265,73 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L273",
+      "source_location": "L303",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_user_detail_auth_not_found_and_missing_mutations",
+      "target": "backend_tests_test_admin_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L319",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_user_detail_auth_not_found_and_missing_mutations",
+      "target": "backend_tests_test_admin_account",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L321",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_role_update_missing_valid_id_does_not_mutate",
+      "target": "backend_tests_test_admin_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L355",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_user_required_fields_validation_is_atomic",
+      "target": "backend_tests_test_admin_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L377",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_user_required_fields_validation_is_atomic",
+      "target": "backend_tests_test_admin_account",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L378",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_test_role_fields_validation_is_atomic",
+      "target": "backend_tests_test_admin_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L407",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14752,102 +15386,152 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_60",
+      "source": "backend_tests_test_admin_rationale_61",
+      "target": "backend_tests_test_admin_test_user_creation_requires_password_without_writes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_rationale_77",
       "target": "backend_tests_test_admin_test_user_mutations_scope_sessions_and_history",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L60",
+      "source_location": "L77",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_90",
+      "source": "backend_tests_test_admin_rationale_114",
       "target": "backend_tests_test_admin_test_role_edits_hard_restrictions_and_audit_export",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L90",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_115",
+      "source": "backend_tests_test_admin_rationale_141",
       "target": "backend_tests_test_admin_test_direct_service_and_audit_transaction_rollback",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L115",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_132",
+      "source": "backend_tests_test_admin_rationale_158",
       "target": "backend_tests_test_admin_test_specific_audit_events_and_history",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L132",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_165",
+      "source": "backend_tests_test_admin_rationale_193",
       "target": "backend_tests_test_admin_test_administrator_permission_cannot_be_removed",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L165",
+      "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_179",
+      "source": "backend_tests_test_admin_rationale_208",
       "target": "backend_tests_test_admin_test_audit_export_filter_snapshot_and_event",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L179",
+      "source_location": "L208",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_207",
+      "source": "backend_tests_test_admin_rationale_237",
       "target": "backend_tests_test_admin_test_export_limit_and_audit_failure_are_atomic",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L207",
+      "source_location": "L237",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_228",
+      "source": "backend_tests_test_admin_rationale_258",
       "target": "backend_tests_test_admin_test_specific_audit_failure_rolls_back_mutations",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L228",
+      "source_location": "L258",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_251",
+      "source": "backend_tests_test_admin_rationale_281",
       "target": "backend_tests_test_admin_test_concurrent_administrator_demotions_keep_one_active",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L251",
+      "source_location": "L281",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_admin_rationale_269",
+      "source": "backend_tests_test_admin_rationale_299",
       "target": "backend_tests_test_admin_test_user_transaction_retries_real_write_conflict",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L269",
+      "source_location": "L299",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_rationale_317",
+      "target": "backend_tests_test_admin_test_user_detail_auth_not_found_and_missing_mutations",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L317",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_rationale_353",
+      "target": "backend_tests_test_admin_test_role_update_missing_valid_id_does_not_mutate",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L353",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_rationale_375",
+      "target": "backend_tests_test_admin_test_user_required_fields_validation_is_atomic",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L375",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_admin_rationale_405",
+      "target": "backend_tests_test_admin_test_role_fields_validation_is_atomic",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_admin.py",
+      "source_location": "L405",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14869,7 +15553,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14880,7 +15564,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14891,7 +15575,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14901,7 +15585,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14911,7 +15595,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14921,7 +15605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14931,7 +15615,110 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L55",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_required_application_fields_are_individually_required",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_required_application_fields_are_individually_required",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_whitespace_application_name_is_rejected_without_writes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_text_length_boundary",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_application_text_length_boundary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_rejects_mongo_operator_objects",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_application_rejects_mongo_operator_objects",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_application_search_treats_regex_metacharacters_literally",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_application_script_text_round_trips_as_json_data",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_application_missing_valid_id_put_delete_are_atomic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14941,7 +15728,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L71",
+      "source_location": "L210",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14951,7 +15738,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L105",
+      "source_location": "L251",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14961,7 +15748,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L124",
+      "source_location": "L270",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14971,24 +15758,118 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L143",
+      "source_location": "L289",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_duplicate_name_returns_conflict_without_writes",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_save_duplicate_name_returns_conflict_without_writes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_missing_target_portfolio_returns_404_without_writes",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L333",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_save_missing_target_portfolio_returns_404_without_writes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L356",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L357",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_non_name_unique_collision_returns_http_500_without_writes",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L380",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_non_name_unique_collision_returns_http_500_without_writes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L381",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_authorization_and_scope_fail_closed_without_writes",
+      "target": "backend_tests_test_applications_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L410",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications",
+      "target": "backend_tests_test_applications_test_save_authorization_and_scope_fail_closed_without_writes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L412",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "backend_tests_test_applications_test_crud_filter_pagination_and_audit",
       "target": "backend_tests_test_applications_headers",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/test_applications.py",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "backend_tests_test_applications_test_crud_filter_pagination_and_audit",
-      "target": "backend_tests_test_applications_portfolio",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -14998,13 +15879,24 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_applications_test_crud_filter_pagination_and_audit",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_applications_test_validation_missing_and_conflicts",
       "target": "backend_tests_test_applications_headers",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L58",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15015,7 +15907,161 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L59",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_required_application_fields_are_individually_required",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_required_application_fields_are_individually_required",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_whitespace_application_name_is_rejected_without_writes",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_whitespace_application_name_is_rejected_without_writes",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_text_length_boundary",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_text_length_boundary",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_rejects_mongo_operator_objects",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_rejects_mongo_operator_objects",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_search_treats_regex_metacharacters_literally",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_search_treats_regex_metacharacters_literally",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_script_text_round_trips_as_json_data",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_script_text_round_trips_as_json_data",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_missing_valid_id_put_delete_are_atomic",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L197",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_application_missing_valid_id_put_delete_are_atomic",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L198",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15026,7 +16072,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L74",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15037,7 +16083,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L75",
+      "source_location": "L214",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15048,7 +16094,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L108",
+      "source_location": "L254",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15059,7 +16105,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L109",
+      "source_location": "L255",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15070,7 +16116,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L127",
+      "source_location": "L273",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15081,7 +16127,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L128",
+      "source_location": "L274",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15092,7 +16138,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L146",
+      "source_location": "L292",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15103,7 +16149,117 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L147",
+      "source_location": "L293",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_duplicate_name_returns_conflict_without_writes",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L313",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_duplicate_name_returns_conflict_without_writes",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L314",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_missing_target_portfolio_returns_404_without_writes",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L337",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_missing_target_portfolio_returns_404_without_writes",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L338",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L360",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L361",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_non_name_unique_collision_returns_http_500_without_writes",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L384",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_non_name_unique_collision_returns_http_500_without_writes",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L385",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_authorization_and_scope_fail_closed_without_writes",
+      "target": "backend_tests_test_applications_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L415",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_authorization_and_scope_fail_closed_without_writes",
+      "target": "backend_tests_test_applications_portfolio",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L416",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15118,82 +16274,202 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_16",
+      "source": "backend_tests_test_applications_rationale_17",
       "target": "backend_tests_test_applications_headers",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_23",
+      "source": "backend_tests_test_applications_rationale_24",
       "target": "backend_tests_test_applications_portfolio",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_30",
+      "source": "backend_tests_test_applications_rationale_31",
       "target": "backend_tests_test_applications_test_crud_filter_pagination_and_audit",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_56",
+      "source": "backend_tests_test_applications_rationale_62",
       "target": "backend_tests_test_applications_test_validation_missing_and_conflicts",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L56",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_72",
+      "source": "backend_tests_test_applications_rationale_79",
+      "target": "backend_tests_test_applications_test_required_application_fields_are_individually_required",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_93",
+      "target": "backend_tests_test_applications_test_whitespace_application_name_is_rejected_without_writes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_119",
+      "target": "backend_tests_test_applications_test_application_text_length_boundary",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_138",
+      "target": "backend_tests_test_applications_test_application_rejects_mongo_operator_objects",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_158",
+      "target": "backend_tests_test_applications_test_application_search_treats_regex_metacharacters_literally",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_174",
+      "target": "backend_tests_test_applications_test_application_script_text_round_trips_as_json_data",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_195",
+      "target": "backend_tests_test_applications_test_application_missing_valid_id_put_delete_are_atomic",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_211",
       "target": "backend_tests_test_applications_test_scope_permissions_and_safe_export",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L72",
+      "source_location": "L211",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_106",
+      "source": "backend_tests_test_applications_rationale_252",
       "target": "backend_tests_test_applications_test_service_audit_failure_rolls_back",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L106",
+      "source_location": "L252",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_125",
+      "source": "backend_tests_test_applications_rationale_271",
       "target": "backend_tests_test_applications_test_shared_guard_conflicts_with_delete_and_cascade",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L125",
+      "source_location": "L271",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_applications_rationale_144",
+      "source": "backend_tests_test_applications_rationale_290",
       "target": "backend_tests_test_applications_test_concurrent_create_or_move_against_portfolio_deletion",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L144",
+      "source_location": "L290",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_311",
+      "target": "backend_tests_test_applications_test_save_duplicate_name_returns_conflict_without_writes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L311",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_335",
+      "target": "backend_tests_test_applications_test_save_missing_target_portfolio_returns_404_without_writes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L335",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_358",
+      "target": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L358",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_382",
+      "target": "backend_tests_test_applications_test_non_name_unique_collision_returns_http_500_without_writes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L382",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_rationale_413",
+      "target": "backend_tests_test_applications_test_save_authorization_and_scope_fail_closed_without_writes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L413",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15288,7 +16564,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L66",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15298,17 +16574,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L85",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "backend_tests_test_auth_test_service_login_rejects_invalid_credentials_and_audits",
-      "target": "parametrize",
+      "target": "backend_tests_test_auth_py_parametrize",
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L98",
+      "source_location": "L106",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast"
@@ -15319,7 +16595,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L103",
+      "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15329,7 +16605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L119",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15339,7 +16615,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L124",
+      "source_location": "L132",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15349,7 +16625,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L138",
+      "source_location": "L146",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15359,7 +16635,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L155",
+      "source_location": "L163",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15369,7 +16645,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L171",
+      "source_location": "L179",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15379,7 +16655,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L190",
+      "source_location": "L198",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15389,7 +16665,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L205",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15422,7 +16698,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L69",
+      "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15433,7 +16709,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L125",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15478,92 +16754,92 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_67",
+      "source": "backend_tests_test_auth_rationale_71",
       "target": "backend_tests_test_auth_test_profile_and_password_persist_validate_and_revoke",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L67",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_86",
+      "source": "backend_tests_test_auth_rationale_94",
       "target": "backend_tests_test_auth_test_service_login_persists_timestamp_and_audit",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L86",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_104",
+      "source": "backend_tests_test_auth_rationale_112",
       "target": "backend_tests_test_auth_test_service_login_rejects_invalid_credentials_and_audits",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L104",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_120",
+      "source": "backend_tests_test_auth_rationale_128",
       "target": "backend_tests_test_auth_test_service_login_rejects_account_changed_after_lookup",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L120",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_139",
+      "source": "backend_tests_test_auth_rationale_147",
       "target": "backend_tests_test_auth_test_service_profile_persists_and_rejects_inactive_account",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L139",
+      "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_156",
+      "source": "backend_tests_test_auth_rationale_164",
       "target": "backend_tests_test_auth_test_service_password_changes_persist_and_revoke_old_tokens",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L156",
+      "source_location": "L164",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_172",
+      "source": "backend_tests_test_auth_rationale_180",
       "target": "backend_tests_test_auth_test_service_password_rejects_incorrect_same_and_stale_changes",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L172",
+      "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_191",
+      "source": "backend_tests_test_auth_rationale_199",
       "target": "backend_tests_test_auth_test_service_logout_persists_revocation_until_expiry",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L191",
+      "source_location": "L199",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_auth_rationale_206",
+      "source": "backend_tests_test_auth_rationale_214",
       "target": "backend_tests_test_auth_test_auth_rejects_expired_and_malformed_signed_tokens",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L206",
+      "source_location": "L214",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15755,6 +17031,98 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_integration",
+      "target": "backend_tests_test_integration_authenticate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration",
+      "target": "backend_tests_test_integration_test_inventory_changes_flow_to_dashboard_reports_audit_and_scope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration",
+      "target": "backend_tests_test_integration_test_failed_inventory_reference_does_not_leak_into_downstream_views",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration_test_inventory_changes_flow_to_dashboard_reports_audit_and_scope",
+      "target": "backend_tests_test_integration_authenticate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration_test_failed_inventory_reference_does_not_leak_into_downstream_views",
+      "target": "backend_tests_test_integration_authenticate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration_rationale_1",
+      "target": "backend_tests_test_integration",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration_rationale_7",
+      "target": "backend_tests_test_integration_authenticate",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration_rationale_14",
+      "target": "backend_tests_test_integration_test_inventory_changes_flow_to_dashboard_reports_audit_and_scope",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_integration_rationale_59",
+      "target": "backend_tests_test_integration_test_failed_inventory_reference_does_not_leak_into_downstream_views",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_integration.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_portfolios",
       "target": "fastapi",
       "relation": "imports_from",
@@ -15824,7 +17192,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L45",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15834,7 +17202,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L57",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15844,7 +17212,48 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L83",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios",
+      "target": "backend_tests_test_portfolios_test_missing_portfolio_put_delete_do_not_mutate_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios",
+      "target": "backend_tests_test_portfolios_test_portfolio_search_treats_regex_as_literal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_test_portfolio_field_validation_preserves_data_and_audit",
+      "target": "backend_tests_test_portfolios_py_parametrize",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L153",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios",
+      "target": "backend_tests_test_portfolios_test_portfolio_field_validation_preserves_data_and_audit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15866,7 +17275,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L48",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15877,7 +17286,40 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L60",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_test_missing_portfolio_put_delete_do_not_mutate_state",
+      "target": "backend_tests_test_portfolios_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_test_portfolio_search_treats_regex_as_literal",
+      "target": "backend_tests_test_portfolios_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_test_portfolio_field_validation_preserves_data_and_audit",
+      "target": "backend_tests_test_portfolios_headers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L163",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -15912,32 +17354,62 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_portfolios_rationale_46",
+      "source": "backend_tests_test_portfolios_rationale_56",
       "target": "backend_tests_test_portfolios_test_invalid_input_and_missing",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L46",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_portfolios_rationale_58",
+      "source": "backend_tests_test_portfolios_rationale_68",
       "target": "backend_tests_test_portfolios_test_scope_and_live_permissions",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L58",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_portfolios_rationale_84",
+      "source": "backend_tests_test_portfolios_rationale_101",
       "target": "backend_tests_test_portfolios_test_direct_service_and_transaction_rollback",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L84",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_rationale_121",
+      "target": "backend_tests_test_portfolios_test_missing_portfolio_put_delete_do_not_mutate_state",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_rationale_139",
+      "target": "backend_tests_test_portfolios_test_portfolio_search_treats_regex_as_literal",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_portfolios_rationale_161",
+      "target": "backend_tests_test_portfolios_test_portfolio_field_validation_preserves_data_and_audit",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_portfolios.py",
+      "source_location": "L161",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16022,7 +17494,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L54",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16032,7 +17504,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L82",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16042,7 +17514,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L105",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16064,7 +17536,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L57",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16075,7 +17547,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L85",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16086,7 +17558,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L128",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16121,32 +17593,32 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_reports_rationale_55",
+      "source": "backend_tests_test_reports_rationale_63",
       "target": "backend_tests_test_reports_test_scope_readonly_and_live_permissions",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L55",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_reports_rationale_83",
+      "source": "backend_tests_test_reports_rationale_100",
       "target": "backend_tests_test_reports_test_export_bound_and_audit_failure",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L83",
+      "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "backend_tests_test_reports_rationale_106",
+      "source": "backend_tests_test_reports_rationale_123",
       "target": "backend_tests_test_reports_test_actual_seed_counts_validity_and_idempotence",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L106",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16206,12 +17678,45 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_e2e_preflight",
+      "target": "ref_playwright_test",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/preflight.mjs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_e2e_reports_spec",
       "target": "ref_playwright_test",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/e2e/reports.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_e2e_responsive_loading_spec",
+      "target": "ref_playwright_test",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/responsive-loading.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_e2e_security_journeys_spec",
+      "target": "ref_playwright_test",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/security-journeys.spec.ts",
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast"
@@ -16727,6 +18232,16 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_playwright_config",
+      "target": "frontend_playwright_config_frontendurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/playwright.config.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_admin_administration_test",
       "target": "ref_vitest",
       "relation": "imports_from",
@@ -16761,7 +18276,7 @@
     },
     {
       "source": "frontend_src_admin_administration_test",
-      "target": "frontend_src_admin_administration",
+      "target": "ref_testing_library_jest_dom",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -16772,12 +18287,23 @@
     },
     {
       "source": "frontend_src_admin_administration_test",
-      "target": "frontend_src_types",
+      "target": "frontend_src_admin_administration",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.test.tsx",
       "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_admin_administration_test",
+      "target": "frontend_src_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/admin/Administration.test.tsx",
+      "source_location": "L6",
       "weight": 1.0,
       "type_only": true,
       "_origin": "ast"
@@ -16789,23 +18315,13 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.test.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "frontend_src_admin_administration_test",
       "target": "frontend_src_admin_administration_test_admin",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/admin/Administration.test.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "frontend_src_admin_administration_test",
-      "target": "frontend_src_admin_administration_test_page",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.test.tsx",
@@ -16816,11 +18332,21 @@
     {
       "source": "frontend_src_admin_administration_test",
       "target": "frontend_src_admin_administration_test_page",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/admin/Administration.test.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_admin_administration_test",
+      "target": "frontend_src_admin_administration_test_page",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.test.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -16994,7 +18520,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L40",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17004,7 +18530,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L44",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17014,7 +18540,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L49",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17036,7 +18562,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L67",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17145,7 +18671,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/AuditLog.tsx",
-      "source_location": "L41",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17598,7 +19124,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L62",
+      "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17609,7 +19135,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L27",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17620,7 +19146,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L63",
+      "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -17729,7 +19255,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/applications/ApplicationDetail.tsx",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -18192,7 +19718,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/applications/ApplicationList.tsx",
-      "source_location": "L66",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -18203,7 +19729,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/applications/ApplicationList.tsx",
-      "source_location": "L71",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -18275,12 +19801,45 @@
     },
     {
       "source": "frontend_src_auth_login_test",
-      "target": "frontend_src_types",
+      "target": "frontend_src_app",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/auth/Login.test.tsx",
       "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_auth_login_test",
+      "target": "frontend_src_api",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/auth/Login.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_auth_login_test",
+      "target": "frontend_src_api_token_key",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/auth/Login.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_auth_login_test",
+      "target": "frontend_src_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/auth/Login.test.tsx",
+      "source_location": "L9",
       "weight": 1.0,
       "type_only": true,
       "_origin": "ast"
@@ -18292,7 +19851,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/auth/Login.test.tsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -18302,7 +19861,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/auth/Login.test.tsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -18940,7 +20499,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/portfolios/PortfolioDetail.tsx",
-      "source_location": "L42",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -19246,7 +20805,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/portfolios/PortfolioList.tsx",
-      "source_location": "L36",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -19810,7 +21369,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/admin/Administration.test.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -20020,6 +21579,17 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/auth/Login.test.tsx",
       "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_auth_login_test",
+      "target": "frontend_src_app_app",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/auth/Login.test.tsx",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -20932,7 +22502,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L243",
+      "source_location": "L273",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -20943,7 +22513,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -20954,7 +22524,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -20965,7 +22535,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21515,7 +23085,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L118",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21526,7 +23096,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L118",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21537,7 +23107,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L119",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21548,7 +23118,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L223",
+      "source_location": "L253",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21559,7 +23129,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L223",
+      "source_location": "L253",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21570,7 +23140,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L231",
+      "source_location": "L261",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21581,7 +23151,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L231",
+      "source_location": "L261",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21592,7 +23162,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L232",
+      "source_location": "L262",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21603,7 +23173,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L245",
+      "source_location": "L275",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21614,7 +23184,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L257",
+      "source_location": "L287",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21625,7 +23195,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L259",
+      "source_location": "L289",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21636,7 +23206,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L259",
+      "source_location": "L289",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21647,7 +23217,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L272",
+      "source_location": "L302",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21658,7 +23228,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L272",
+      "source_location": "L302",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21669,7 +23239,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L273",
+      "source_location": "L303",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21680,7 +23250,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L111",
+      "source_location": "L257",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21691,7 +23261,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L111",
+      "source_location": "L257",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21702,7 +23272,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L112",
+      "source_location": "L258",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21735,7 +23305,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L88",
+      "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21746,7 +23316,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L88",
+      "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21757,7 +23327,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L91",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21768,7 +23338,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L129",
+      "source_location": "L137",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21779,7 +23349,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L141",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21790,7 +23360,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L141",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21801,7 +23371,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L158",
+      "source_location": "L166",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21812,7 +23382,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L158",
+      "source_location": "L166",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21823,7 +23393,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L164",
+      "source_location": "L172",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21834,7 +23404,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L174",
+      "source_location": "L182",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21845,7 +23415,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L174",
+      "source_location": "L182",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21856,7 +23426,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L185",
+      "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21867,7 +23437,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L193",
+      "source_location": "L201",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21878,7 +23448,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L193",
+      "source_location": "L201",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21889,7 +23459,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L195",
+      "source_location": "L203",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21911,7 +23481,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L87",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21922,7 +23492,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L87",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21933,7 +23503,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L88",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21944,7 +23514,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L87",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21955,7 +23525,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L108",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -21966,7 +23536,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L109",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -22846,7 +24416,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L118",
+      "source_location": "L144",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22857,7 +24427,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L223",
+      "source_location": "L253",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22868,7 +24438,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L231",
+      "source_location": "L261",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22879,7 +24449,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L259",
+      "source_location": "L289",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22890,7 +24460,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L272",
+      "source_location": "L302",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22901,7 +24471,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L119",
+      "source_location": "L145",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22912,7 +24482,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L232",
+      "source_location": "L262",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22923,7 +24493,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L257",
+      "source_location": "L287",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22934,7 +24504,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L273",
+      "source_location": "L303",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22945,7 +24515,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L118",
+      "source_location": "L144",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22956,7 +24526,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L223",
+      "source_location": "L253",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22967,7 +24537,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L231",
+      "source_location": "L261",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22978,7 +24548,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L259",
+      "source_location": "L289",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -22989,7 +24559,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L272",
+      "source_location": "L302",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23000,7 +24570,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L245",
+      "source_location": "L275",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23011,7 +24581,18 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L111",
+      "source_location": "L257",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_app_applications_repository_applicationrepository",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L363",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23022,7 +24603,18 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L112",
+      "source_location": "L258",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_app_applications_schemas_applicationinput",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L364",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23033,7 +24625,18 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L111",
+      "source_location": "L257",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_app_applications_service_applicationservice",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L363",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23044,7 +24647,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L88",
+      "source_location": "L96",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23055,7 +24658,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L106",
+      "source_location": "L114",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23066,7 +24669,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L123",
+      "source_location": "L131",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23077,7 +24680,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L141",
+      "source_location": "L149",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23088,7 +24691,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L158",
+      "source_location": "L166",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23099,7 +24702,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L174",
+      "source_location": "L182",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23110,7 +24713,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L193",
+      "source_location": "L201",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23121,7 +24724,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L88",
+      "source_location": "L96",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23132,7 +24735,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L106",
+      "source_location": "L114",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23143,7 +24746,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L129",
+      "source_location": "L137",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23154,7 +24757,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L141",
+      "source_location": "L149",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23165,7 +24768,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L158",
+      "source_location": "L166",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23176,7 +24779,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L174",
+      "source_location": "L182",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23187,7 +24790,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L193",
+      "source_location": "L201",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23220,7 +24823,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L87",
+      "source_location": "L104",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23231,7 +24834,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L88",
+      "source_location": "L105",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23242,7 +24845,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L87",
+      "source_location": "L104",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23253,7 +24856,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L118",
+      "source_location": "L135",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23264,7 +24867,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L108",
+      "source_location": "L125",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23275,7 +24878,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L115",
+      "source_location": "L132",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23286,7 +24889,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L87",
+      "source_location": "L104",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -23514,7 +25117,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L64",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23526,7 +25129,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L74",
+      "source_location": "L154",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23538,7 +25141,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L80",
+      "source_location": "L198",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23562,7 +25165,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L41",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23574,7 +25177,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L46",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23586,7 +25189,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/admin/Administration.tsx",
-      "source_location": "L51",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23598,7 +25201,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23610,7 +25213,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L44",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23622,7 +25225,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L45",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23634,7 +25237,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L46",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23646,7 +25249,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L47",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23658,7 +25261,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L48",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23670,7 +25273,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L49",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23682,7 +25285,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L50",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23694,7 +25297,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L52",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23706,7 +25309,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L53",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23718,7 +25321,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L54",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23802,7 +25405,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L119",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23814,7 +25417,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L127",
+      "source_location": "L153",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23826,7 +25429,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L232",
+      "source_location": "L262",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23838,7 +25441,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L260",
+      "source_location": "L290",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23850,7 +25453,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_admin.py",
-      "source_location": "L273",
+      "source_location": "L303",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23862,7 +25465,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L112",
+      "source_location": "L258",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23874,7 +25477,19 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_applications.py",
-      "source_location": "L120",
+      "source_location": "L266",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_applications_test_save_propagates_non_name_duplicate_key_and_rolls_back",
+      "target": "backend_app_applications_service_applicationservice_save",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/tests/test_applications.py",
+      "source_location": "L364",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23886,7 +25501,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L89",
+      "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23898,7 +25513,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L110",
+      "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23910,7 +25525,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L131",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23922,7 +25537,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L143",
+      "source_location": "L151",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23934,7 +25549,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L159",
+      "source_location": "L167",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23946,7 +25561,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L161",
+      "source_location": "L169",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23958,7 +25573,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L178",
+      "source_location": "L186",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23970,7 +25585,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L194",
+      "source_location": "L202",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -23982,7 +25597,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_auth.py",
-      "source_location": "L196",
+      "source_location": "L204",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -24006,7 +25621,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L88",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -24018,7 +25633,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L91",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -24030,7 +25645,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_portfolios.py",
-      "source_location": "L98",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -24042,7 +25657,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/tests/test_reports.py",
-      "source_location": "L99",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -24056,8 +25671,8 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_service_adminservice_init",
-      "_tgt": "backend_app_admin_repository_adminrepository"
+      "_src": "backend_app_admin_repository_adminrepository",
+      "_tgt": "backend_app_admin_service_adminservice_init"
     },
     {
       "source": "backend_app_admin_repository_py_objectid",
@@ -24186,8 +25801,8 @@
       "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_router_update_role",
-      "_tgt": "backend_app_admin_router_service"
+      "_src": "backend_app_admin_router_service",
+      "_tgt": "backend_app_admin_router_update_role"
     },
     {
       "source": "backend_app_admin_router_service",
@@ -24199,8 +25814,8 @@
       "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_router_update_user",
-      "_tgt": "backend_app_admin_router_service"
+      "_src": "backend_app_admin_router_service",
+      "_tgt": "backend_app_admin_router_update_user"
     },
     {
       "source": "backend_app_admin_router_service",
@@ -24212,8 +25827,8 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_router_users",
-      "_tgt": "backend_app_admin_router_service"
+      "_src": "backend_app_admin_router_service",
+      "_tgt": "backend_app_admin_router_users"
     },
     {
       "source": "backend_app_admin_router_py_get",
@@ -24264,8 +25879,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_router_roles",
-      "_tgt": "backend_app_admin_router_py_get"
+      "_src": "backend_app_admin_router_py_get",
+      "_tgt": "backend_app_admin_router_roles"
     },
     {
       "source": "backend_app_admin_router_py_get",
@@ -24277,8 +25892,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_router_users",
-      "_tgt": "backend_app_admin_router_py_get"
+      "_src": "backend_app_admin_router_py_get",
+      "_tgt": "backend_app_admin_router_users"
     },
     {
       "source": "backend_app_admin_router_py_depends",
@@ -24368,8 +25983,8 @@
       "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_router_roles",
-      "_tgt": "backend_app_admin_router_py_depends"
+      "_src": "backend_app_admin_router_py_depends",
+      "_tgt": "backend_app_admin_router_roles"
     },
     {
       "source": "backend_app_admin_router_py_depends",
@@ -24381,8 +25996,8 @@
       "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_router_update_role",
-      "_tgt": "backend_app_admin_router_py_depends"
+      "_src": "backend_app_admin_router_py_depends",
+      "_tgt": "backend_app_admin_router_update_role"
     },
     {
       "source": "backend_app_admin_router_py_depends",
@@ -24394,8 +26009,8 @@
       "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_router_update_user",
-      "_tgt": "backend_app_admin_router_py_depends"
+      "_src": "backend_app_admin_router_py_depends",
+      "_tgt": "backend_app_admin_router_update_user"
     },
     {
       "source": "backend_app_admin_router_py_post",
@@ -24433,8 +26048,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_router_update_role",
-      "_tgt": "backend_app_admin_router_py_put"
+      "_src": "backend_app_admin_router_py_put",
+      "_tgt": "backend_app_admin_router_update_role"
     },
     {
       "source": "backend_app_admin_router_py_put",
@@ -24446,8 +26061,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_router_update_user",
-      "_tgt": "backend_app_admin_router_py_put"
+      "_src": "backend_app_admin_router_py_put",
+      "_tgt": "backend_app_admin_router_update_user"
     },
     {
       "source": "backend_app_admin_router_py_delete",
@@ -24485,8 +26100,8 @@
       "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_service_adminservice_save_user",
-      "_tgt": "backend_app_admin_schemas_userinput"
+      "_src": "backend_app_admin_schemas_userinput",
+      "_tgt": "backend_app_admin_service_adminservice_save_user"
     },
     {
       "source": "backend_app_admin_schemas_py_field_validator",
@@ -24498,8 +26113,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_schemas_roleinput_unique_permissions",
-      "_tgt": "backend_app_admin_schemas_py_field_validator"
+      "_src": "backend_app_admin_schemas_py_field_validator",
+      "_tgt": "backend_app_admin_schemas_roleinput_unique_permissions"
     },
     {
       "source": "backend_app_admin_schemas_py_field_validator",
@@ -24511,8 +26126,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_schemas_userinput_normalize_email",
-      "_tgt": "backend_app_admin_schemas_py_field_validator"
+      "_src": "backend_app_admin_schemas_py_field_validator",
+      "_tgt": "backend_app_admin_schemas_userinput_normalize_email"
     },
     {
       "source": "backend_app_admin_schemas_py_field_validator",
@@ -24524,8 +26139,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_schemas_userinput_normalize_name",
-      "_tgt": "backend_app_admin_schemas_py_field_validator"
+      "_src": "backend_app_admin_schemas_py_field_validator",
+      "_tgt": "backend_app_admin_schemas_userinput_normalize_name"
     },
     {
       "source": "backend_app_admin_schemas_py_field_validator",
@@ -24537,8 +26152,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_admin_schemas_userinput_validate_password",
-      "_tgt": "backend_app_admin_schemas_py_field_validator"
+      "_src": "backend_app_admin_schemas_py_field_validator",
+      "_tgt": "backend_app_admin_schemas_userinput_validate_password"
     },
     {
       "source": "backend_app_admin_schemas_roleinput",
@@ -24550,8 +26165,8 @@
       "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_admin_service_adminservice_save_role",
-      "_tgt": "backend_app_admin_schemas_roleinput"
+      "_src": "backend_app_admin_schemas_roleinput",
+      "_tgt": "backend_app_admin_service_adminservice_save_role"
     },
     {
       "source": "backend_app_applications_repository_applicationrepository",
@@ -25040,6 +26655,32 @@
       "_tgt": "backend_app_portfolios_router_update_portfolio"
     },
     {
+      "source": "backend_app_auth_router_current_session",
+      "target": "backend_app_reports_router_applications",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_applications",
+      "_tgt": "backend_app_auth_router_current_session"
+    },
+    {
+      "source": "backend_app_auth_router_current_session",
+      "target": "backend_app_reports_router_portfolios",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_portfolios",
+      "_tgt": "backend_app_auth_router_current_session"
+    },
+    {
       "source": "backend_app_auth_router_py_depends",
       "target": "backend_app_auth_router_login",
       "relation": "references",
@@ -25233,6 +26874,19 @@
       "_origin": "ast",
       "_src": "backend_app_core_database_create_indexes",
       "_tgt": "backend_app_core_database_py_asyncdatabase"
+    },
+    {
+      "source": "backend_app_core_seed_py_asyncdatabase",
+      "target": "backend_app_core_seed_seed_inventory",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/core/seed.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_core_seed_seed_inventory",
+      "_tgt": "backend_app_core_seed_py_asyncdatabase"
     },
     {
       "source": "backend_app_dashboard_router_service",
@@ -25508,6 +27162,84 @@
       "_tgt": "backend_app_portfolios_service_portfolioservice_save"
     },
     {
+      "source": "backend_app_reports_router_service",
+      "target": "backend_app_reports_router_applications",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_applications",
+      "_tgt": "backend_app_reports_router_service"
+    },
+    {
+      "source": "backend_app_reports_router_service",
+      "target": "backend_app_reports_router_portfolios",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_portfolios",
+      "_tgt": "backend_app_reports_router_service"
+    },
+    {
+      "source": "backend_app_reports_router_py_get",
+      "target": "backend_app_reports_router_applications",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_applications",
+      "_tgt": "backend_app_reports_router_py_get"
+    },
+    {
+      "source": "backend_app_reports_router_py_get",
+      "target": "backend_app_reports_router_portfolios",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_portfolios",
+      "_tgt": "backend_app_reports_router_py_get"
+    },
+    {
+      "source": "backend_app_reports_router_py_depends",
+      "target": "backend_app_reports_router_portfolios",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_portfolios",
+      "_tgt": "backend_app_reports_router_py_depends"
+    },
+    {
+      "source": "backend_app_reports_router_py_response",
+      "target": "backend_app_reports_router_portfolios",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/reports/router.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_reports_router_portfolios",
+      "_tgt": "backend_app_reports_router_py_response"
+    },
+    {
       "source": "fixture",
       "target": "backend_tests_conftest_client",
       "relation": "references",
@@ -25532,26 +27264,13 @@
       "_origin": "ast",
       "_src": "backend_tests_conftest_mongo_uri",
       "_tgt": "fixture"
-    },
-    {
-      "source": "parametrize",
-      "target": "backend_tests_test_auth_test_service_login_rejects_invalid_credentials_and_audits",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/test_auth.py",
-      "source_location": "L98",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "_src": "backend_tests_test_auth_test_service_login_rejects_invalid_credentials_and_audits",
-      "_tgt": "parametrize"
     }
   ],
   "metadata": {
-    "built_at": "2026-11-17T19:01:29.842991+00:00",
+    "built_at": "2026-11-17T23:32:32.816935+00:00",
     "version": "graph_update-v1",
     "codebase_root": "C:\\artifacts-v2\\T0132PcJVCRTV000417112617513666\\developer",
     "force": true,
-    "files_scanned": 78
+    "files_scanned": 82
   }
 }
