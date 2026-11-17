@@ -10,6 +10,7 @@ test('real identity journey persists profile and captures browser errors', async
   await page.getByLabel('Email address').fill('admin@ketsip.local');
   await page.getByLabel('Password').fill(password);
   await page.getByRole('button', { name: 'Sign in' }).click();
+  await page.getByRole('link', { name: 'My profile' }).click();
   await expect(page.getByRole('heading', { name: 'My profile' })).toBeVisible();
   await expect(page.getByText('admin@ketsip.local')).toBeVisible();
   await page.getByLabel('Current password').fill(password);

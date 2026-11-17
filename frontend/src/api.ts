@@ -19,5 +19,7 @@ export async function request<T>(path: string, options: RequestInit = {}): Promi
     const body = await response.json().catch(() => null) as { detail?: unknown } | null;
     throw new ApiError(response.status, typeof body?.detail === 'string' ? body.detail : 'Unable to complete the request.');
   }
-  return response.status === 204 ? undefined as T : await response.json() as T;
+  if (response.status === 204) return undefined as T;
+  if (response.headers.get('content-type')?.includes('text/csv')) return await response.blob() as T;
+  return await response.json() as T;
 }

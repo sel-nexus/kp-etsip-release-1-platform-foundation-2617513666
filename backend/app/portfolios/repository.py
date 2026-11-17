@@ -35,20 +35,25 @@ class PortfolioRepository:
     async def mutate(self, action: str, user: dict, identity: ObjectId, values: dict | None = None) -> bool:
         """Commit the portfolio change, cascade and audit together or not at all."""
         now = datetime.now(timezone.utc)
+        async def transaction(session):
+            if action == "create":
+                await self.db.portfolios.insert_one({"_id": identity, **values, "createdAt": now, "updatedAt": now}, session=session)
+            elif action == "edit":
+                result = await self.db.portfolios.update_one({"_id": identity}, {"$set": {**values, "updatedAt": now}}, session=session)
+                if not result.matched_count:
+                    return False
+            else:
+                # This delete conflicts with the application transaction's portfolio guard write.
+                result = await self.db.portfolios.delete_one({"_id": identity}, session=session)
+                if not result.deleted_count:
+                    return False
+                await self.db.applications.delete_many({"portfolioId": str(identity)}, session=session)
+            await self.db.audit_logs.insert_one({"timestamp": now, "createdAt": now, "updatedAt": now,
+                "userId": user["_id"], "userName": user["name"], "action": action,
+                "entityType": "portfolio", "entityId": str(identity), "details": {"create": "Portfolio created", "edit": "Portfolio edited", "delete": "Portfolio deleted"}[action]}, session=session)
+            return True
         async with self.db.client.start_session() as session:
+            if action == "delete":
+                return await session.with_transaction(transaction)
             async with await session.start_transaction():
-                if action == "create":
-                    await self.db.portfolios.insert_one({"_id": identity, **values, "createdAt": now, "updatedAt": now}, session=session)
-                elif action == "edit":
-                    result = await self.db.portfolios.update_one({"_id": identity}, {"$set": {**values, "updatedAt": now}}, session=session)
-                    if not result.matched_count:
-                        return False
-                else:
-                    result = await self.db.portfolios.delete_one({"_id": identity}, session=session)
-                    if not result.deleted_count:
-                        return False
-                    await self.db.applications.delete_many({"portfolioId": str(identity)}, session=session)
-                await self.db.audit_logs.insert_one({"timestamp": now, "createdAt": now, "updatedAt": now,
-                    "userId": user["_id"], "userName": user["name"], "action": action,
-                    "entityType": "portfolio", "entityId": str(identity), "details": {"create": "Portfolio created", "edit": "Portfolio edited", "delete": "Portfolio deleted"}[action]}, session=session)
-        return True
+                return await transaction(session)

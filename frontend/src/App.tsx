@@ -5,19 +5,23 @@ import { useAuth } from './auth/useAuth';
 import PortfolioList from './portfolios/PortfolioList';
 import PortfolioDetail from './portfolios/PortfolioDetail';
 import PortfolioForm from './portfolios/PortfolioForm';
+import ApplicationList from './applications/ApplicationList';
+import ApplicationDetail from './applications/ApplicationDetail';
+import ApplicationForm from './applications/ApplicationForm';
 
 /** Wire identity routes to the real API-backed session. */
 function IdentityApp() {
   const auth = useAuth();
   const navigate = useNavigate();
   if (auth.loading) return <main className="page" role="status">Restoring session…</main>;
-  if (!auth.user) return <Login sessionError={auth.sessionError} onLogin={async (email, password) => { await auth.login(email, password); navigate('/profile'); }} />;
+  if (!auth.user) return <Login sessionError={auth.sessionError} onLogin={async (email, password) => { await auth.login(email, password); navigate('/applications'); }} />;
   const user = auth.user;
   return (
     <>
       <header className="topbar">
         <Link className="brand" to="/profile">KP ETSIP <span>Platform Foundation</span></Link>
         <nav aria-label="Account navigation">
+          <NavLink to="/applications">Applications</NavLink>
           <NavLink to="/portfolios">Portfolios</NavLink>
           <NavLink to="/profile">My profile</NavLink>
           <button className="quiet" type="button" onClick={() => { void auth.logout(); }}>Sign out</button>
@@ -29,7 +33,11 @@ function IdentityApp() {
         <Route path="/portfolios/new" element={<PortfolioForm user={user} />} />
         <Route path="/portfolios/:id" element={<PortfolioDetail user={user} />} />
         <Route path="/portfolios/:id/edit" element={<PortfolioForm user={user} />} />
-        <Route path="*" element={<Navigate to="/profile" replace />} />
+        <Route path="/applications" element={<ApplicationList user={user} />} />
+        <Route path="/applications/new" element={<ApplicationForm user={user} />} />
+        <Route path="/applications/:id" element={<ApplicationDetail user={user} />} />
+        <Route path="/applications/:id/edit" element={<ApplicationForm user={user} />} />
+        <Route path="*" element={<Navigate to="/applications" replace />} />
       </Routes>
     </>
   );

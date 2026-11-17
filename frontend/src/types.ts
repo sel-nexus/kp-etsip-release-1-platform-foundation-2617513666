@@ -34,4 +34,16 @@ export interface ApplicationSummary {
   riskLevel: string | null;
 }
 
+export interface ApplicationInput {
+  name: string; description: string; portfolioId: string; productArea: string;
+  businessOwner: string; technologyOwner: string; etsOwner: string;
+  criticality: 'Low' | 'Medium' | 'High' | 'Critical'; tier: number;
+  lifecycleStatus: 'Active' | 'Deprecated' | 'Retired'; technologyStack: string;
+  repositoryLink: string | null; pipelineLink: string | null;
+  applicationHealthScore: number; qualityScore: number; automationCoverage: number;
+  unitTestCoverage: number; openDefects: number; openCriticalDefects: number;
+  riskLevel: 'Low' | 'Medium' | 'High';
+}
+export interface Application extends ApplicationInput { id: string; portfolioName: string; createdAt: string; updatedAt: string }
+
 export interface Page<T> { items: T[]; total: number; limit: number; offset: number }
