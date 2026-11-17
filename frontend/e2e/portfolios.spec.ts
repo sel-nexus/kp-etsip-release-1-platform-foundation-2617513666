@@ -1,0 +1,34 @@
+import { expect, test } from '@playwright/test';
+
+test('administrator creates, filters, edits and deletes a portfolio', async ({ page }) => {
+  const password = process.env.E2E_PASSWORD;
+  if (!password) throw new Error('Set E2E_PASSWORD to the configured demo bootstrap password');
+  const errors: string[] = [];
+  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+  page.on('pageerror', error => errors.push(error.message));
+  const name = `Portfolio journey ${Date.now()}`;
+  await page.goto('/');
+  await page.getByLabel('Email address').fill('admin@ketsip.local');
+  await page.getByLabel('Password').fill(password);
+  await page.getByRole('button', { name: 'Sign in' }).click();
+  await page.getByRole('link', { name: 'Portfolios', exact: true }).click();
+  await page.getByRole('link', { name: 'Create portfolio' }).click();
+  await page.getByLabel('Name', { exact: true }).fill(name);
+  await page.getByLabel('Owner').fill('Journey team');
+  await page.getByLabel('Product area').fill('Journey area');
+  await page.getByRole('button', { name: 'Save portfolio' }).click();
+  await expect(page.getByRole('heading', { name })).toBeVisible();
+  await expect(page.getByText('No applications found.')).toBeVisible();
+  await page.getByRole('link', { name: 'Edit', exact: true }).click();
+  await page.getByLabel('Owner').fill('Updated team');
+  await page.getByRole('button', { name: 'Save portfolio' }).click();
+  await expect(page.getByText('Updated team')).toBeVisible();
+  await page.getByRole('link', { name: '← Portfolios' }).click();
+  await page.getByLabel('Search').fill(name);
+  await expect(page.getByRole('link', { name })).toBeVisible();
+  await page.getByRole('link', { name }).click();
+  page.once('dialog', dialog => dialog.accept());
+  await page.getByRole('button', { name: 'Delete portfolio' }).click();
+  await expect(page.getByRole('heading', { name: 'Portfolios' })).toBeVisible();
+  expect(errors).toEqual([]);
+});

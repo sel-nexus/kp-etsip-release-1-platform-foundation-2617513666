@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo import AsyncMongoClient
 from app.auth.router import router
+from app.portfolios.router import router as portfolios_router
 from app.core.config import Settings
 from app.core.database import create_indexes
 from app.core.seed import seed_database
@@ -39,6 +40,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.add_middleware(CORSMiddleware, allow_origins=[origin.strip() for origin in origins.split(",") if origin.strip()],
                        allow_methods=["GET", "POST", "PUT", "DELETE"], allow_headers=["Authorization", "Content-Type"])
     app.include_router(router)
+    app.include_router(portfolios_router)
 
     @app.get("/api/health", tags=["health"])
     async def health() -> dict[str, str]:

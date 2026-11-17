@@ -15,3 +15,6 @@ async def create_indexes(db: AsyncDatabase) -> None:
     await db.roles.create_index("name", unique=True)
     await db.audit_logs.create_index("timestamp")
     await db.revoked_tokens.create_index("expiresAt", expireAfterSeconds=0)
+    await db.portfolios.create_index("name", unique=True)
+    await db.portfolios.create_index([("status", 1), ("productArea", 1)])
+    await db.applications.create_index("portfolioId")
