@@ -57,23 +57,68 @@ export default function ApplicationForm({ user }: { user: User }) {
     <main className="page">
       <Link to={id ? `/applications/${id}` : '/applications'}>← Back</Link>
       <h1>{id ? 'Edit application' : 'Create application'}</h1>
-      {!permitted ? <p role="alert">You cannot change applications.</p> : loading ? <p role="status">Loading application…</p> : failed ? <p role="alert" className="error">{error}</p> :
+      {!permitted ? <p
+        role="alert"
+      >You cannot change applications.</p> : loading ? <p
+        role="status"
+      >Loading application…</p> : failed ? <p
+        role="alert"
+        className="error"
+      >{error}</p> :
         <form className="portfolio-form" onSubmit={submit}>
           {textFields.map(([key, label, max]) => <div key={key}>
             <label htmlFor={`field-${key}`}>{label}</label>
-            <input id={`field-${key}`} type={key === 'repositoryLink' || key === 'pipelineLink' ? 'url' : 'text'} required={key === 'name'} aria-required={key === 'name'} maxLength={max} value={String(form[key] ?? '')} onChange={e => setForm({ ...form, [key]: e.target.value || (key === 'repositoryLink' || key === 'pipelineLink' ? null : '') })} />
+            <input
+              id={`field-${key}`}
+              type={key === 'repositoryLink' || key === 'pipelineLink' ? 'url' : 'text'}
+              required={key === 'name'}
+              aria-required={key === 'name'}
+              maxLength={max}
+              value={String(form[key] ?? '')}
+              onChange={e => setForm({ ...form, [key]: e.target.value || (key === 'repositoryLink' || key === 'pipelineLink' ? null : '') })}
+            />
           </div>)}
           <label htmlFor="field-portfolio">Portfolio</label>
-          <select id="field-portfolio" required aria-required="true" value={form.portfolioId} onChange={e => setForm({ ...form, portfolioId: e.target.value })}>
-            <option value="">Select a portfolio</option>{portfolios.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+          <select
+            id="field-portfolio"
+            required
+            aria-required="true"
+            value={form.portfolioId}
+            onChange={e => setForm({ ...form, portfolioId: e.target.value })}
+          >
+            <option value="">Select a portfolio</option>
+            {portfolios.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
           </select>
-          {([['criticality', 'Criticality', ['Low', 'Medium', 'High', 'Critical']], ['lifecycleStatus', 'Lifecycle status', ['Active', 'Deprecated', 'Retired']], ['riskLevel', 'Risk level', ['Low', 'Medium', 'High']]] as [keyof ApplicationInput, string, string[]][]).map(([key, label, options]) => <div key={key}>
+          {([
+            ['criticality', 'Criticality', ['Low', 'Medium', 'High', 'Critical']],
+            ['lifecycleStatus', 'Lifecycle status', ['Active', 'Deprecated', 'Retired']],
+            ['riskLevel', 'Risk level', ['Low', 'Medium', 'High']]
+          ] as [keyof ApplicationInput, string, string[]][]).map(([key, label, options]) => <div
+            key={key}
+          >
             <label htmlFor={`field-${key}`}>{label}</label>
-            <select id={`field-${key}`} value={String(form[key])} onChange={e => setForm({ ...form, [key]: e.target.value })}>{options.map(option => <option key={option}>{option}</option>)}</select>
+            <select
+              id={`field-${key}`}
+              value={String(form[key])}
+              onChange={e => setForm({ ...form, [key]: e.target.value })}
+            >
+              {options.map(option => <option
+                key={option}
+              >{option}</option>)}
+            </select>
           </div>)}
           {numbers.map(([key, label, max, min]) => <div key={key}>
             <label htmlFor={`field-${key}`}>{label}</label>
-            <input id={`field-${key}`} type="number" required min={min} max={max} step={1} value={String(form[key])} onChange={e => setForm({ ...form, [key]: e.target.value === '' ? '' : Number(e.target.value) })} />
+            <input
+              id={`field-${key}`}
+              type="number"
+              required
+              min={min}
+              max={max}
+              step={1}
+              value={String(form[key])}
+              onChange={e => setForm({ ...form, [key]: e.target.value === '' ? '' : Number(e.target.value) })}
+            />
           </div>)}
           {error && <p role="alert" className="error">{error}</p>}
           <button type="submit" disabled={saving}>Save application</button>

@@ -24,7 +24,15 @@ function IdentityApp() {
   const auth = useAuth();
   const navigate = useNavigate();
   if (auth.loading) return <main className="page" role="status">Restoring session…</main>;
-  if (!auth.user) return <Login sessionError={auth.sessionError} onLogin={async (email, password) => { const signedIn = await auth.login(email, password); navigate(landingPath(signedIn), { replace: true }); }} />;
+  if (!auth.user) return (
+    <Login
+      sessionError={auth.sessionError}
+      onLogin={async (email, password) => {
+        const signedIn = await auth.login(email, password);
+        navigate(landingPath(signedIn), { replace: true });
+      }}
+    />
+  );
   const user = auth.user;
   return (
     <>
@@ -44,7 +52,10 @@ function IdentityApp() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/reports" element={<Reports user={user} />} />
         <Route path="/administration" element={<Administration user={user} />} />
-        <Route path="/profile" element={<Profile user={user} onUser={auth.setUser} onSessionEnd={() => { auth.setUser(null); navigate('/'); }} />} />
+        <Route
+          path="/profile"
+          element={<Profile user={user} onUser={auth.setUser} onSessionEnd={() => { auth.setUser(null); navigate('/'); }} />}
+        />
         <Route path="/portfolios" element={<PortfolioList user={user} />} />
         <Route path="/portfolios/new" element={<PortfolioForm user={user} />} />
         <Route path="/portfolios/:id" element={<PortfolioDetail user={user} />} />
@@ -60,5 +71,7 @@ function IdentityApp() {
 }
 
 export default function App() {
-  return <BrowserRouter><IdentityApp /></BrowserRouter>;
+  return <BrowserRouter>
+    <IdentityApp />
+  </BrowserRouter>;
 }

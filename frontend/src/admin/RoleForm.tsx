@@ -21,12 +21,21 @@ export default function RoleForm({ role, onSave, onCancel }: Props) {
     <form className="card portfolio-form" onSubmit={submit}>
       <h2>{role.id ? 'Edit' : 'Create'} {role.name}</h2>
       <label htmlFor="role-description">Description</label>
-      <input id="role-description" value={description} maxLength={500} onChange={event => setDescription(event.target.value)} />
+      <input
+        id="role-description"
+        value={description}
+        maxLength={500}
+        onChange={event => setDescription(event.target.value)}
+      />
       <fieldset>
         <legend>Permissions</legend>
         {permissions.map(permission => (
           <label className="admin-check" key={permission}>
-            <input type="checkbox" checked={selected.includes(permission)} onChange={event => setSelected(event.target.checked ? [...selected, permission] : selected.filter(item => item !== permission))} />
+            <input
+              type="checkbox"
+              checked={selected.includes(permission)}
+              onChange={event => setSelected(event.target.checked ? [...selected, permission] : selected.filter(item => item !== permission))}
+            />
             {permission}
           </label>
         ))}

@@ -9,17 +9,34 @@ const page = { items: [{ id: 'one', name: 'Payments', productArea: 'Finance' }],
 afterEach(() => { cleanup(); vi.restoreAllMocks(); sessionStorage.clear(); window.history.replaceState({}, '', '/'); });
 
 it('renders metrics and bars and applies shareable filters', async () => {
-  const fetcher = vi.spyOn(globalThis, 'fetch').mockImplementation(async url => new Response(JSON.stringify(String(url).includes('/portfolios') ? page : metrics)));
+  const fetcher = vi.spyOn(globalThis, 'fetch').mockImplementation(async url => {
+    const path = String(url);
+    if (path.includes('/portfolios')) return new Response(JSON.stringify(page));
+    const params = new URL(path, 'http://localhost').searchParams;
+    const portfolio = params.get('portfolioId') === 'one';
+    const area = params.get('productArea') === 'Finance';
+    const highRisk = params.get('riskLevel') === 'High';
+    const score = portfolio && area && highRisk ? 43 : portfolio && area ? 67 : portfolio ? 74 : 81;
+    const atRisk = portfolio && area && highRisk ? 2 : 1;
+    return new Response(JSON.stringify({ ...metrics, enterpriseQualityScore: score, applicationsAtRisk: atRisk, portfolios: [{ ...metrics.portfolios[0], qualityScore: score, applicationsAtRisk: atRisk }] }));
+  });
   render(<MemoryRouter><Dashboard /></MemoryRouter>);
   expect(await screen.findByRole('heading', { name: 'Portfolio Quality Score' })).toBeTruthy();
   expect(screen.getByText('Enterprise Quality Score').nextElementSibling?.textContent).toBe('81');
   expect(within(screen.getByRole('region', { name: 'Applications at Risk by portfolio' })).getByText('1 of 2')).toBeTruthy();
+  fireEvent.change(screen.getByLabelText('Portfolio'), { target: { value: 'one' } });
+  await waitFor(() => expect(screen.getByText('Enterprise Quality Score').nextElementSibling?.textContent).toBe('74'));
   fireEvent.change(screen.getByLabelText('Product area'), { target: { value: 'Finance' } });
   await waitFor(() => expect(fetcher.mock.calls.some(([url]) => String(url).includes('productArea=Finance'))).toBe(true));
+  await waitFor(() => expect(screen.getByText('Enterprise Quality Score').nextElementSibling?.textContent).toBe('67'));
   fireEvent.change(screen.getByLabelText('Risk level'), { target: { value: 'High' } });
   await waitFor(() => expect(fetcher.mock.calls.some(([url]) => String(url).includes('riskLevel=High'))).toBe(true));
+  await waitFor(() => expect(screen.getByText('Enterprise Quality Score').nextElementSibling?.textContent).toBe('43'));
+  expect(within(screen.getByRole('region', { name: 'Applications at Risk by portfolio' })).getByText('2 of 2')).toBeTruthy();
   fireEvent.click(screen.getByRole('button', { name: 'Clear filters' }));
   expect((screen.getByLabelText('Risk level') as HTMLSelectElement).value).toBe('');
+  await waitFor(() => expect(screen.getByText('Enterprise Quality Score').nextElementSibling?.textContent).toBe('81'));
+  expect(within(screen.getByRole('region', { name: 'Applications at Risk by portfolio' })).getByText('1 of 2')).toBeTruthy();
 });
 
 it('shows loading, empty averages and no matching applications', async () => {

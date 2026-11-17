@@ -61,25 +61,119 @@ export default function ApplicationList({ user }: { user: User }) {
   return (
     <main className="page">
       <div className="portfolio-heading">
-        <div><h1>Application repository</h1><p className="muted">Review application ownership, quality and risk.</p></div>
+        <div>
+          <h1>Application repository</h1>
+          <p className="muted">Review application ownership, quality and risk.</p>
+        </div>
         <div className="actions">
           {canExport && <button type="button" disabled={exporting} onClick={() => void download()}>Export CSV</button>}
           {canCreate && <Link className="button-link" to="/applications/new">Create application</Link>}
         </div>
       </div>
       <div className="filters">
-        <div><label htmlFor="app-search">Search</label><input id="app-search" maxLength={200} value={params.get('search') || ''} onChange={e => change('search', e.target.value)} /></div>
-        <div><label htmlFor="app-portfolio">Portfolio</label><select id="app-portfolio" value={params.get('portfolioId') || ''} onChange={e => change('portfolioId', e.target.value)}><option value="">All portfolios</option>{portfolios.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}</select></div>
-        {[['criticality', 'Criticality', ['Low', 'Medium', 'High', 'Critical']], ['riskLevel', 'Risk level', ['Low', 'Medium', 'High']], ['lifecycleStatus', 'Lifecycle status', ['Active', 'Deprecated', 'Retired']]].map(([key, label, options]) => <div key={key as string}><label htmlFor={`filter-${key}`}>{label as string}</label><select id={`filter-${key}`} value={params.get(key as string) || ''} onChange={e => change(key as string, e.target.value)}><option value="">All</option>{(options as string[]).map(option => <option key={option}>{option}</option>)}</select></div>)}
+        <div>
+          <label
+            htmlFor="app-search"
+          >Search</label>
+          <input
+            id="app-search"
+            maxLength={200}
+            value={params.get('search') || ''}
+            onChange={e => change('search', e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="app-portfolio"
+          >Portfolio</label>
+          <select
+            id="app-portfolio"
+            value={params.get('portfolioId') || ''}
+            onChange={e => change('portfolioId', e.target.value)}
+          >
+            <option
+              value=""
+            >All portfolios</option>
+            {portfolios.map(p => <option
+              key={p.id}
+              value={p.id}
+            >{p.name}</option>)}
+          </select>
+        </div>
+        {[
+          ['criticality', 'Criticality', ['Low', 'Medium', 'High', 'Critical']],
+          ['riskLevel', 'Risk level', ['Low', 'Medium', 'High']],
+          ['lifecycleStatus', 'Lifecycle status', ['Active', 'Deprecated', 'Retired']]
+        ].map(([key, label, options]) => <div
+          key={key as string}
+        >
+          <label
+            htmlFor={`filter-${key}`}
+          >{label as string}</label>
+          <select
+            id={`filter-${key}`}
+            value={params.get(key as string) || ''}
+            onChange={e => change(key as string, e.target.value)}
+          >
+            <option
+              value=""
+            >All</option>
+            {(options as string[]).map(option => <option
+              key={option}
+            >{option}</option>)}
+          </select>
+        </div>)}
       </div>
       {loading && <p role="status">Loading applications…</p>}
       {error && <p role="alert" className="error">{error}</p>}
       {!loading && page && <>
-        {page.items.length === 0 ? <p>No applications found.</p> : <div className="table-wrap"><table>
-          <thead><tr>{['Name', 'Portfolio', 'Criticality', 'Tier', 'Lifecycle status', 'Health score', 'Automation coverage', 'Open critical defects', 'Risk level'].map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
-          <tbody>{page.items.map(item => <tr key={item.id}><td><Link to={`/applications/${item.id}`}>{item.name}</Link></td><td>{item.portfolioName || item.portfolioId}</td><td>{item.criticality}</td><td>{item.tier}</td><td>{item.lifecycleStatus}</td><td>{item.applicationHealthScore}</td><td>{item.automationCoverage}%</td><td>{item.openCriticalDefects}</td><td>{item.riskLevel}</td></tr>)}</tbody>
-        </table></div>}
-        <div className="pagination"><button disabled={page.offset === 0} onClick={() => change('offset', String(Math.max(0, page.offset - page.limit)))}>Previous</button><span>{page.total} total</span><button disabled={page.offset + page.limit >= page.total} onClick={() => change('offset', String(page.offset + page.limit))}>Next</button></div>
+        {page.items.length === 0 ? <p>No applications found.</p> : <div className="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                {[
+                  'Name', 'Portfolio', 'Criticality', 'Tier', 'Lifecycle status', 'Health score',
+                  'Automation coverage', 'Open critical defects', 'Risk level'
+                ].map(label => <th
+                  scope="col"
+                  key={label}
+                >{label}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {page.items.map(item => <tr
+                key={item.id}
+              >
+                <td>
+                  <Link
+                    to={`/applications/${item.id}`}
+                  >{item.name}</Link>
+                </td>
+                <td>{item.portfolioName || item.portfolioId}</td>
+                <td>{item.criticality}</td>
+                <td>{item.tier}</td>
+                <td>{item.lifecycleStatus}</td>
+                <td>{item.applicationHealthScore}</td>
+                <td>{item.automationCoverage}%</td>
+                <td>{item.openCriticalDefects}</td>
+                <td>{item.riskLevel}</td>
+              </tr>)}
+            </tbody>
+          </table>
+        </div>}
+        <div
+          className="pagination"
+        >
+          <button
+            disabled={page.offset === 0}
+            onClick={() => change('offset', String(Math.max(0, page.offset - page.limit)))}
+          >Previous</button>
+          <span>{page.total} total</span>
+          <button
+            disabled={page.offset + page.limit >= page.total}
+            onClick={() => change('offset', String(page.offset + page.limit))}
+          >Next</button>
+        </div>
       </>}
     </main>
   );

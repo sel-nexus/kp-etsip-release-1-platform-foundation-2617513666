@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import '@testing-library/jest-dom/vitest';
 import Administration from './Administration';
 import type { User } from '../types';
 
@@ -33,10 +34,14 @@ describe('administration', () => {
     expect(fetcher).not.toHaveBeenCalled();
   });
   it('edits role permissions and filters audit history', async () => {
+    let role = { id: 'r', name: 'Read Only', description: '', permissions: ['view'] };
     const fetcher = vi.spyOn(globalThis, 'fetch').mockImplementation(async (url, options) => {
       const path = String(url);
-      if (options?.method === 'PUT') return new Response(JSON.stringify({}), { status: 200 });
-      const data = path.includes('audit-logs') ? page([{ id: 'a', timestamp: '2026-01-01T00:00:00Z', userId: '1', userName: 'Admin', action: 'edit', entityType: 'role', entityId: 'r', details: 'Role edit' }]) : path.includes('/api/users') ? page([admin]) : path.includes('/api/roles') ? page([{ id: 'r', name: 'Read Only', description: '', permissions: ['view'] }]) : page([]);
+      if (options?.method === 'PUT') {
+        role = { ...role, ...JSON.parse(String(options.body)) };
+        return new Response(JSON.stringify(role), { status: 200 });
+      }
+      const data = path.includes('audit-logs') ? page([{ id: 'a', timestamp: '2026-01-01T00:00:00Z', userId: '1', userName: 'Admin', action: 'edit', entityType: 'role', entityId: 'r', details: 'Role edit' }]) : path.includes('/api/users') ? page([admin]) : path.includes('/api/roles') ? page([role]) : page([]);
       return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
     });
     render(<MemoryRouter><Administration user={admin} /></MemoryRouter>);
@@ -46,6 +51,12 @@ describe('administration', () => {
     fireEvent.click(screen.getByLabelText('export'));
     fireEvent.click(screen.getByRole('button', { name: 'Save role' }));
     await waitFor(() => expect(fetcher.mock.calls.some(([url, init]) => String(url).includes('/api/roles/r') && String(init?.body).includes('export'))).toBe(true));
+    const editRole = await screen.findByRole('button', { name: 'Edit Read Only' });
+    const row = editRole.closest('tr');
+    expect(row).not.toBeNull();
+    expect(within(row as HTMLTableRowElement).getByText('view, export')).toBeVisible();
+    fireEvent.click(editRole);
+    expect(screen.getByLabelText('export')).toBeChecked();
     fireEvent.click(screen.getByRole('button', { name: 'Audit' }));
     expect(await screen.findByText('Role edit')).toBeTruthy();
     fireEvent.change(screen.getByLabelText('Action'), { target: { value: 'edit' } });

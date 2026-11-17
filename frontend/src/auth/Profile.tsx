@@ -45,10 +45,16 @@ export default function Profile({ user, onUser, onSessionEnd }: ProfileProps) {
         <section className="card" aria-labelledby="details-title">
           <h2 id="details-title">Account details</h2>
           <dl>
-            <dt>Name</dt><dd>{user.name}</dd>
-            <dt>Email</dt><dd>{user.email}</dd>
-            <dt>Role</dt><dd>{user.role}</dd>
-            <dt>Portfolio access</dt><dd>{user.portfolioAccess.length ? user.portfolioAccess.join(', ') : user.role === 'Portfolio Leader' ? 'No assigned portfolios' : 'All portfolios'}</dd>
+            <dt>Name</dt>
+            <dd>{user.name}</dd>
+            <dt>Email</dt>
+            <dd>{user.email}</dd>
+            <dt>Role</dt>
+            <dd>{user.role}</dd>
+            <dt>Portfolio access</dt>
+            <dd>{user.portfolioAccess.length
+              ? user.portfolioAccess.join(', ')
+              : user.role === 'Portfolio Leader' ? 'No assigned portfolios' : 'All portfolios'}</dd>
           </dl>
         </section>
         <div className="stack">
@@ -69,11 +75,36 @@ export default function Profile({ user, onUser, onSessionEnd }: ProfileProps) {
             <p className="muted">Use at least 12 characters. You will need to sign in again.</p>
             <form onSubmit={changePassword}>
               <label htmlFor="current-password">Current password</label>
-              <input id="current-password" type="password" required autoComplete="current-password" value={current} onChange={event => setCurrent(event.target.value)} />
+              <input
+                id="current-password"
+                type="password"
+                required
+                autoComplete="current-password"
+                value={current}
+                onChange={event => setCurrent(event.target.value)}
+              />
               <label htmlFor="new-password">New password</label>
-              <input id="new-password" type="password" required minLength={12} maxLength={72} autoComplete="new-password" value={next} onChange={event => setNext(event.target.value)} />
+              <input
+                id="new-password"
+                type="password"
+                required
+                minLength={12}
+                maxLength={72}
+                autoComplete="new-password"
+                value={next}
+                onChange={event => setNext(event.target.value)}
+              />
               <label htmlFor="confirm-password">Confirm new password</label>
-              <input id="confirm-password" type="password" required minLength={12} maxLength={72} autoComplete="new-password" value={confirm} onChange={event => setConfirm(event.target.value)} />
+              <input
+                id="confirm-password"
+                type="password"
+                required
+                minLength={12}
+                maxLength={72}
+                autoComplete="new-password"
+                value={confirm}
+                onChange={event => setConfirm(event.target.value)}
+              />
               <button disabled={busy} type="submit">Change password</button>
             </form>
           </section>

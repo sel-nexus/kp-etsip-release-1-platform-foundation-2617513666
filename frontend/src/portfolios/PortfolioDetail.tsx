@@ -38,13 +38,68 @@ export default function PortfolioDetail({ user }: { user: User }) {
     {loading && <p role="status">Loading portfolio…</p>}
     {error && <p role="alert" className="error">{error}</p>}
     {!loading && portfolio && <>
-      <div className="portfolio-heading page-heading"><div><h1>{portfolio.name}</h1><p className="muted">{portfolio.description || 'No description provided.'}</p></div>
-        <div className="actions">{canEdit && <Link to={`/portfolios/${id}/edit`}>Edit</Link>}{user.role === 'Administrator' && user.permissions.includes('delete') && <button disabled={deleting} onClick={() => void remove()}>Delete portfolio</button>}</div>
+      <div
+        className="portfolio-heading page-heading"
+      >
+        <div>
+          <h1>{portfolio.name}</h1>
+          <p
+            className="muted"
+          >{portfolio.description || 'No description provided.'}</p>
+        </div>
+        <div
+          className="actions"
+        >
+          {canEdit && <Link
+            to={`/portfolios/${id}/edit`}
+          >Edit</Link>}
+          {user.role === 'Administrator' && user.permissions.includes('delete') && <button
+            disabled={deleting}
+            onClick={() => void remove()}
+          >Delete portfolio</button>}
+        </div>
       </div>
-      <section className="card"><h2>Portfolio summary</h2><dl><dt>Owner</dt><dd>{portfolio.owner || '—'}</dd><dt>Product area</dt><dd>{portfolio.productArea || '—'}</dd><dt>Status</dt><dd>{portfolio.status}</dd><dt>Applications</dt><dd>{portfolio.applicationCount}</dd><dt>Quality score</dt><dd>{portfolio.qualityScore ?? '—'}</dd></dl></section>
-      <section className="card"><h2>Applications</h2>
-        {applications && (applications.items.length ? <ul>{applications.items.map(app => <li key={app.id}><Link to={`/applications/${app.id}`}>{app.name}</Link> — {app.riskLevel || '—'}</li>)}</ul> : <p className="muted">No applications found.</p>)}
-        {applications && <div className="pagination"><button disabled={applications.offset === 0} onClick={() => setParams({ offset: String(Math.max(0, applications.offset - applications.limit)) })}>Previous</button><span>{applications.total} total</span><button disabled={applications.offset + applications.limit >= applications.total} onClick={() => setParams({ offset: String(applications.offset + applications.limit) })}>Next</button></div>}
+      <section
+        className="card"
+      >
+        <h2>Portfolio summary</h2>
+        <dl>
+          <dt>Owner</dt>
+          <dd>{portfolio.owner || '—'}</dd>
+          <dt>Product area</dt>
+          <dd>{portfolio.productArea || '—'}</dd>
+          <dt>Status</dt>
+          <dd>{portfolio.status}</dd>
+          <dt>Applications</dt>
+          <dd>{portfolio.applicationCount}</dd>
+          <dt>Quality score</dt>
+          <dd>{portfolio.qualityScore ?? '—'}</dd>
+        </dl>
+      </section>
+      <section className="card">
+        <h2>Applications</h2>
+        {applications && (applications.items.length ? <ul>
+          {applications.items.map(app => <li
+            key={app.id}
+          ><Link
+            to={`/applications/${app.id}`}
+          >{app.name}</Link> — {app.riskLevel || '—'}</li>)}
+        </ul> : <p
+          className="muted"
+        >No applications found.</p>)}
+        {applications && <div
+          className="pagination"
+        >
+          <button
+            disabled={applications.offset === 0}
+            onClick={() => setParams({ offset: String(Math.max(0, applications.offset - applications.limit)) })}
+          >Previous</button>
+          <span>{applications.total} total</span>
+          <button
+            disabled={applications.offset + applications.limit >= applications.total}
+            onClick={() => setParams({ offset: String(applications.offset + applications.limit) })}
+          >Next</button>
+        </div>}
       </section>
     </>}
   </main>;

@@ -6,6 +6,7 @@ import io
 from bson import ObjectId
 import pytest
 from fastapi import HTTPException
+from httpx import ASGITransport, AsyncClient
 from pymongo.errors import DuplicateKeyError, OperationFailure
 from app.applications.repository import ApplicationRepository
 from app.applications.schemas import ApplicationInput
@@ -39,10 +40,15 @@ async def test_crud_filter_pagination_and_audit(client):
     assert response.json()['unitTestCoverage'] == 90
     assert (await http.post('/api/applications', headers=admin, json=payload)).status_code == 409
     assert (await http.post('/api/applications', headers=admin, json={**payload, 'name': 'Another', 'riskLevel': 'Low'})).status_code == 201
-    page = (await http.get('/api/applications', headers=admin, params={'search': 'led', 'portfolioId': pid, 'criticality': 'Critical', 'riskLevel': 'High', 'lifecycleStatus': 'Active', 'limit': 1})).json()
+    response = await http.get('/api/applications', headers=admin, params={'search': 'led', 'portfolioId': pid, 'criticality': 'Critical', 'riskLevel': 'High', 'lifecycleStatus': 'Active', 'limit': 1})
+    assert response.status_code == 200
+    page = response.json()
     assert page['total'] == 1 and page['items'][0]['portfolioName'] == 'Payments'
-    assert (await http.get('/api/applications', headers=admin, params={'limit': 1, 'offset': 1})).json()['items'][0]['name'] == 'Ledger'
+    response = await http.get('/api/applications', headers=admin, params={'limit': 1, 'offset': 1})
+    assert response.status_code == 200
+    assert response.json()['items'][0]['name'] == 'Ledger'
     detail = await http.get(f'/api/applications/{identity}', headers=admin)
+    assert detail.status_code == 200
     assert detail.json()['businessOwner'] == 'Business'
     updated = await http.put(f'/api/applications/{identity}', headers=admin, json={**payload, 'qualityScore': 25})
     assert updated.status_code == 200 and updated.json()['qualityScore'] == 25
@@ -68,19 +74,159 @@ async def test_validation_missing_and_conflicts(client):
     assert await db.audit_logs.count_documents({'entityType': 'application'}) == 0
 
 
+@pytest.mark.parametrize('missing', ['name', 'portfolioId'])
+async def test_required_application_fields_are_individually_required(client, missing):
+    """Reject each missing required field without creating inventory or audit entries."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Required fields')
+    payload = {'name': 'Valid', 'portfolioId': pid}
+    del payload[missing]
+    response = await http.post('/api/applications', headers=admin, json=payload)
+    assert response.status_code == 422
+    assert any(error['loc'] == ['body', missing] and error['type'] == 'missing' for error in response.json()['detail'])
+    assert await db.applications.count_documents({}) == 0
+    assert await db.audit_logs.count_documents({'entityType': 'application'}) == 0
+
+
+async def test_whitespace_application_name_is_rejected_without_writes(client):
+    """Reject whitespace-only names on create and edit without changing MongoDB."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Whitespace validation')
+    created = await http.post('/api/applications', headers=admin, json={'name': 'Existing', 'portfolioId': pid})
+    assert created.status_code == 201
+    apps = await db.applications.find().sort('_id', 1).to_list(None)
+    portfolios = await db.portfolios.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = {'name': ' \t\n ', 'portfolioId': pid}
+    for response in (await http.post('/api/applications', headers=admin, json=payload),
+                     await http.put('/api/applications/' + created.json()['id'], headers=admin, json=payload)):
+        assert response.status_code == 422
+        assert any(error['loc'] == ['body', 'name'] and error['type'] == 'string_too_short'
+                   for error in response.json()['detail'])
+    assert await db.applications.find().sort('_id', 1).to_list(None) == apps
+    assert await db.portfolios.find().sort('_id', 1).to_list(None) == portfolios
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
+@pytest.mark.parametrize(('field', 'maximum'), [
+    ('name', 200), ('productArea', 200), ('businessOwner', 200),
+    ('technologyOwner', 200), ('etsOwner', 200), ('description', 4000),
+    ('technologyStack', 4000),
+])
+async def test_application_text_length_boundary(client, field, maximum):
+    """Accept the documented maximum and reject one extra character atomically."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Length boundary')
+    payload = {'name': 'Valid', 'portfolioId': pid, field: 'x' * maximum}
+    created = await http.post('/api/applications', headers=admin, json=payload)
+    assert created.status_code == 201, created.text
+    identity = created.json()['id']
+    assert created.json()[field] == 'x' * maximum
+    before = await db.applications.find_one({'_id': ObjectId(identity)})
+    response = await http.put(f'/api/applications/{identity}', headers=admin, json={**payload, field: 'x' * (maximum + 1)})
+    assert response.status_code == 422
+    assert any(error['loc'] == ['body', field] and error['type'] == 'string_too_long' for error in response.json()['detail'])
+    assert await db.applications.find_one({'_id': ObjectId(identity)}) == before
+    assert await db.audit_logs.count_documents({'entityType': 'application', 'entityId': identity}) == 1
+
+
+@pytest.mark.parametrize('field', ['name', 'portfolioId', 'description', 'qualityScore'])
+async def test_application_rejects_mongo_operator_objects(client, field):
+    """Reject operator objects rather than interpreting them as query or update expressions."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Operator boundary')
+    payload = {'name': 'Existing', 'portfolioId': pid, 'description': 'Original', 'qualityScore': 50}
+    created = await http.post('/api/applications', headers=admin, json=payload)
+    assert created.status_code == 201
+    identity = created.json()['id']
+    before = await db.applications.find_one({'_id': ObjectId(identity)})
+    bad = {**payload, field: {'$ne': None}}
+    for response in (await http.post('/api/applications', headers=admin, json=bad),
+                     await http.put(f'/api/applications/{identity}', headers=admin, json=bad)):
+        assert response.status_code == 422
+        assert any(error['loc'] == ['body', field] for error in response.json()['detail'])
+    assert await db.applications.count_documents({}) == 1
+    assert await db.applications.find_one({'_id': ObjectId(identity)}) == before
+    assert await db.audit_logs.count_documents({'entityType': 'application', 'entityId': identity}) == 1
+
+
+async def test_application_search_treats_regex_metacharacters_literally(client):
+    """A regex-looking string matches only the name containing those characters."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Search')
+    for name in ('Service .* [x]', 'Service anything x', 'Unrelated'):
+        response = await http.post('/api/applications', headers=admin, json={'name': name, 'portfolioId': pid})
+        assert response.status_code == 201
+    for search in ('.* [x]', '.*'):
+        response = await http.get('/api/applications', headers=admin, params={'search': search})
+        assert response.status_code == 200
+        assert response.json()['total'] == 1
+        assert [item['name'] for item in response.json()['items']] == ['Service .* [x]']
+    assert await db.applications.count_documents({}) == 3
+
+
+async def test_application_script_text_round_trips_as_json_data(client):
+    """Return untrusted text as JSON, not HTML; UI escaping is a separate concern."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Text')
+    text = '<script>alert("stored-xss")</script>'
+    response = await http.post('/api/applications', headers=admin, json={'name': 'XSS text', 'portfolioId': pid, 'description': text})
+    assert response.status_code == 201
+    identity = response.json()['id']
+    assert response.json()['description'] == text
+    assert (await db.applications.find_one({'_id': ObjectId(identity)}))['description'] == text
+    detail = await http.get(f'/api/applications/{identity}', headers=admin)
+    assert detail.status_code == 200
+    assert detail.headers['content-type'].startswith('application/json')
+    assert detail.json()['description'] == text
+    listing = await http.get('/api/applications', headers=admin, params={'search': 'XSS text'})
+    assert listing.status_code == 200
+    assert listing.headers['content-type'].startswith('application/json')
+    assert listing.json()['total'] == 1 and listing.json()['items'][0]['description'] == text
+
+
+async def test_application_missing_valid_id_put_delete_are_atomic(client):
+    """A valid absent ID produces 404 and no inventory, guard or audit changes."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Missing target')
+    missing = str(ObjectId())
+    before = await db.portfolios.find_one({'_id': ObjectId(pid)})
+    for response in (await http.put(f'/api/applications/{missing}', headers=admin, json={'name': 'Missing', 'portfolioId': pid}),
+                     await http.delete(f'/api/applications/{missing}', headers=admin)):
+        assert response.status_code == 404
+        assert response.json() == {'detail': 'Application not found'}
+    assert await db.applications.count_documents({}) == 0
+    assert await db.portfolios.find_one({'_id': ObjectId(pid)}) == before
+    assert await db.audit_logs.count_documents({'entityType': 'application'}) == 0
+
+
 async def test_scope_permissions_and_safe_export(client):
     """Enforce hard limits and live role changes on reads, writes and exports."""
     http, db = client
     admin = await headers(http)
     one = await portfolio(http, admin, 'One')
     two = await portfolio(http, admin, 'Two')
-    a = (await http.post('/api/applications', headers=admin, json={'name': '=SUM(1,1)', 'portfolioId': one, 'description': '  +formula'})).json()['id']
-    b = (await http.post('/api/applications', headers=admin, json={'name': 'Secret', 'portfolioId': two})).json()['id']
+    response = await http.post('/api/applications', headers=admin, json={'name': '=SUM(1,1)', 'portfolioId': one, 'description': '  +formula'})
+    assert response.status_code == 201
+    a = response.json()['id']
+    response = await http.post('/api/applications', headers=admin, json={'name': 'Secret', 'portfolioId': two})
+    assert response.status_code == 201
+    b = response.json()['id']
     leader = await headers(http, 'leader@ketsip.local')
-    assert (await http.get('/api/applications', headers=leader)).json()['total'] == 0
+    response = await http.get('/api/applications', headers=leader)
+    assert response.status_code == 200 and response.json()['total'] == 0
     await db.users.update_one({'email': 'leader@ketsip.local'}, {'$set': {'portfolioAccess': [one]}})
-    assert (await http.get('/api/applications', headers=leader)).json()['total'] == 1
-    assert (await http.get('/api/applications', headers=leader, params={'portfolioId': two})).json()['total'] == 0
+    response = await http.get('/api/applications', headers=leader)
+    assert response.status_code == 200 and response.json()['total'] == 1
+    response = await http.get('/api/applications', headers=leader, params={'portfolioId': two})
+    assert response.status_code == 200 and response.json()['total'] == 0
     assert (await http.get(f'/api/applications/{b}', headers=leader)).status_code == 404
     assert (await http.put(f'/api/applications/{a}', headers=leader, json={'name': 'Moved', 'portfolioId': two})).status_code == 404
     assert (await http.post('/api/applications', headers=leader, json={'name': 'No', 'portfolioId': two})).status_code == 404
@@ -158,3 +304,144 @@ async def test_concurrent_create_or_move_against_portfolio_deletion(client):
         assert deleted.status_code == 204, deleted.text
         assert await db.portfolios.find_one({'_id': ObjectId(target)}) is None
         assert await db.applications.count_documents({'portfolioId': target}) == 0
+
+
+@pytest.mark.parametrize('operation', ['create', 'edit'])
+async def test_save_duplicate_name_returns_conflict_without_writes(client, operation):
+    """Both save paths translate the name index violation and roll back the guard."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Duplicate names')
+    first = await http.post('/api/applications', headers=admin, json={'name': 'Taken', 'portfolioId': pid})
+    second = await http.post('/api/applications', headers=admin, json={'name': 'Other', 'portfolioId': pid})
+    assert first.status_code == second.status_code == 201
+    apps = await db.applications.find().sort('_id', 1).to_list(None)
+    portfolios = await db.portfolios.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = {'name': 'Taken', 'portfolioId': pid}
+    if operation == 'create':
+        response = await http.post('/api/applications', headers=admin, json=payload)
+    else:
+        response = await http.put('/api/applications/' + second.json()['id'], headers=admin, json=payload)
+    assert response.status_code == 409
+    assert response.json() == {'detail': 'Application name already exists'}
+    assert await db.applications.find().sort('_id', 1).to_list(None) == apps
+    assert await db.portfolios.find().sort('_id', 1).to_list(None) == portfolios
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
+@pytest.mark.parametrize('operation', ['create', 'edit'])
+async def test_save_missing_target_portfolio_returns_404_without_writes(client, operation):
+    """A valid but absent destination is distinguished from an absent application."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Existing destination')
+    created = await http.post('/api/applications', headers=admin, json={'name': 'Existing', 'portfolioId': pid})
+    assert created.status_code == 201
+    apps = await db.applications.find().sort('_id', 1).to_list(None)
+    portfolios = await db.portfolios.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = {'name': 'Changed', 'portfolioId': str(ObjectId())}
+    if operation == 'create':
+        response = await http.post('/api/applications', headers=admin, json=payload)
+    else:
+        response = await http.put('/api/applications/' + created.json()['id'], headers=admin, json=payload)
+    assert response.status_code == 404
+    assert response.json() == {'detail': 'Portfolio not found'}
+    assert await db.applications.find().sort('_id', 1).to_list(None) == apps
+    assert await db.portfolios.find().sort('_id', 1).to_list(None) == portfolios
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
+@pytest.mark.parametrize('operation', ['create', 'edit'])
+async def test_save_propagates_non_name_duplicate_key_and_rolls_back(client, operation):
+    """A real unique-index failure on another field is not mislabeled as a name conflict."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'Other unique index')
+    actor = await db.users.find_one({'email': 'admin@ketsip.local'})
+    service = ApplicationService(ApplicationRepository(db))
+    first = await service.save(actor, ApplicationInput(name='First', portfolioId=pid, productArea='Taken'))
+    second = await service.save(actor, ApplicationInput(name='Second', portfolioId=pid, productArea='Other'))
+    await db.applications.create_index('productArea', unique=True)
+    apps = await db.applications.find().sort('_id', 1).to_list(None)
+    portfolios = await db.portfolios.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = ApplicationInput(name='Third' if operation == 'create' else 'Second', portfolioId=pid, productArea='Taken')
+    with pytest.raises(DuplicateKeyError) as exc:
+        await service.save(actor, payload, str(second['_id']) if operation == 'edit' else None)
+    assert exc.value.details['keyPattern'] == {'productArea': 1}
+    assert first['_id'] != second['_id']
+    assert await db.applications.find().sort('_id', 1).to_list(None) == apps
+    assert await db.portfolios.find().sort('_id', 1).to_list(None) == portfolios
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
+@pytest.mark.parametrize('operation', ['create', 'edit'])
+async def test_non_name_unique_collision_returns_http_500_without_writes(client, operation):
+    """An unrelated Mongo index collision is not exposed or translated to a name conflict."""
+    http, db = client
+    admin = await headers(http)
+    pid = await portfolio(http, admin, 'HTTP unique index')
+    first = await http.post('/api/applications', headers=admin,
+                            json={'name': 'First', 'portfolioId': pid, 'productArea': 'Taken'})
+    second = await http.post('/api/applications', headers=admin,
+                             json={'name': 'Second', 'portfolioId': pid, 'productArea': 'Other'})
+    assert first.status_code == second.status_code == 201
+    await db.applications.create_index('productArea', unique=True)
+    apps = await db.applications.find().sort('_id', 1).to_list(None)
+    portfolios = await db.portfolios.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = {'name': 'Third' if operation == 'create' else 'Second',
+               'portfolioId': pid, 'productArea': 'Taken'}
+    async with AsyncClient(transport=ASGITransport(app=http._transport.app, raise_app_exceptions=False),
+                           base_url='http://test') as boundary:
+        if operation == 'create':
+            response = await boundary.post('/api/applications', headers=admin, json=payload)
+        else:
+            response = await boundary.put('/api/applications/' + second.json()['id'], headers=admin, json=payload)
+    assert response.status_code == 500
+    assert response.text == 'Internal Server Error'
+    assert await db.applications.find().sort('_id', 1).to_list(None) == apps
+    assert await db.portfolios.find().sort('_id', 1).to_list(None) == portfolios
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
+@pytest.mark.parametrize('case', ['out_of_scope_create', 'out_of_scope_destination', 'out_of_scope_existing',
+                                 'edit_permission_denied', 'create_permission_denied'])
+async def test_save_authorization_and_scope_fail_closed_without_writes(client, case):
+    """Deny unauthorized writes at both the source and destination scope boundaries."""
+    http, db = client
+    admin = await headers(http)
+    one = await portfolio(http, admin, 'Visible')
+    two = await portfolio(http, admin, 'Hidden')
+    visible = await http.post('/api/applications', headers=admin, json={'name': 'Visible app', 'portfolioId': one})
+    hidden = await http.post('/api/applications', headers=admin, json={'name': 'Hidden app', 'portfolioId': two})
+    assert visible.status_code == hidden.status_code == 201
+    leader = await headers(http, 'leader@ketsip.local')
+    await db.users.update_one({'email': 'leader@ketsip.local'}, {'$set': {'portfolioAccess': [one]}})
+    if case in ('edit_permission_denied', 'create_permission_denied'):
+        await db.roles.update_one({'name': 'Portfolio Leader'}, {'$set': {'permissions': ['view']}})
+    apps = await db.applications.find().sort('_id', 1).to_list(None)
+    portfolios = await db.portfolios.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    if case == 'out_of_scope_create':
+        response = await http.post('/api/applications', headers=leader, json={'name': 'Denied', 'portfolioId': two})
+        expected = (404, 'Portfolio not found')
+    elif case == 'out_of_scope_destination':
+        response = await http.put('/api/applications/' + visible.json()['id'], headers=leader, json={'name': 'Denied', 'portfolioId': two})
+        expected = (404, 'Portfolio not found')
+    elif case == 'out_of_scope_existing':
+        response = await http.put('/api/applications/' + hidden.json()['id'], headers=leader, json={'name': 'Denied', 'portfolioId': one})
+        expected = (404, 'Application not found')
+    elif case == 'edit_permission_denied':
+        response = await http.put('/api/applications/' + visible.json()['id'], headers=leader, json={'name': 'Denied', 'portfolioId': one})
+        expected = (403, 'Insufficient permissions')
+    else:
+        response = await http.post('/api/applications', headers=leader, json={'name': 'Denied', 'portfolioId': one})
+        expected = (403, 'Insufficient permissions')
+    assert response.status_code == expected[0]
+    assert response.json() == {'detail': expected[1]}
+    assert await db.applications.find().sort('_id', 1).to_list(None) == apps
+    assert await db.portfolios.find().sort('_id', 1).to_list(None) == portfolios
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit

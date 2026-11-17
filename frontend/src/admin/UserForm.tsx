@@ -28,17 +28,32 @@ export default function UserForm({ user, roles, portfolios, onSave, onCancel }: 
       <label htmlFor="admin-email">Email address</label>
       <input id="admin-email" type="email" value={email} onChange={e => setEmail(e.target.value)} required maxLength={254} />
       <label htmlFor="admin-password">{user ? 'New password (optional)' : 'Password'}</label>
-      <input id="admin-password" type="password" autoComplete="new-password" value={password} onChange={e => setPassword(e.target.value)} required={!user} minLength={12} maxLength={72} />
+      <input
+        id="admin-password"
+        type="password"
+        autoComplete="new-password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        required={!user}
+        minLength={12}
+        maxLength={72}
+      />
       <label htmlFor="admin-role">Role</label>
       <select id="admin-role" value={role} onChange={e => setRole(e.target.value)}>
         {roles.map(item => <option key={item.id} value={item.name}>{item.name}</option>)}
       </select>
       <label htmlFor="admin-status">Status</label>
       <select id="admin-status" value={status} onChange={e => setStatus(e.target.value)}>
-        <option>Active</option><option>Inactive</option>
+        <option>Active</option>
+        <option>Inactive</option>
       </select>
       <label htmlFor="admin-scope">Assigned portfolios</label>
-      <select id="admin-scope" multiple value={scope} onChange={e => setScope(Array.from(e.target.selectedOptions, option => option.value))}>
+      <select
+        id="admin-scope"
+        multiple
+        value={scope}
+        onChange={e => setScope(Array.from(e.target.selectedOptions, option => option.value))}
+      >
         {portfolios.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}
       </select>
       <p className="muted">Hold Ctrl or Command to select multiple portfolios. Empty leader scope grants no access.</p>

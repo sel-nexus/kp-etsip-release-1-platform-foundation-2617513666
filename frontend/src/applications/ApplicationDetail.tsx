@@ -42,15 +42,27 @@ export default function ApplicationDetail({ user }: { user: User }) {
           <h1>{app.name}</h1>
           <div className="actions">
             {canEdit && <Link to={`/applications/${id}/edit`}>Edit</Link>}
-            {user.role === 'Administrator' && user.permissions.includes('delete') && <button disabled={deleting} onClick={() => void remove()}>Delete application</button>}
+            {user.role === 'Administrator' && user.permissions.includes('delete') && <button
+              disabled={deleting}
+              onClick={() => void remove()}
+            >Delete application</button>}
           </div>
         </div>
         <section className="card">
           <h2>Application details</h2>
           <dl>
-            {fields.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value === '' || value === null ? '—' : value}</dd></div>)}
-            <dt>Repository link</dt><dd>{app.repositoryLink ? <a href={app.repositoryLink} target="_blank" rel="noreferrer">{app.repositoryLink}</a> : '—'}</dd>
-            <dt>Pipeline link</dt><dd>{app.pipelineLink ? <a href={app.pipelineLink} target="_blank" rel="noreferrer">{app.pipelineLink}</a> : '—'}</dd>
+            {fields.map(([label, value]) => <div key={label}>
+              <dt>{label}</dt>
+              <dd>{value === '' || value === null ? '—' : value}</dd>
+            </div>)}
+            <dt>Repository link</dt>
+            <dd>
+              {app.repositoryLink ? <a href={app.repositoryLink} target="_blank" rel="noreferrer">{app.repositoryLink}</a> : '—'}
+            </dd>
+            <dt>Pipeline link</dt>
+            <dd>
+              {app.pipelineLink ? <a href={app.pipelineLink} target="_blank" rel="noreferrer">{app.pipelineLink}</a> : '—'}
+            </dd>
           </dl>
         </section>
       </>}

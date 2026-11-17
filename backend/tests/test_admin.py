@@ -56,12 +56,33 @@ async def test_validation_duplicate_and_last_admin(client):
     assert (await http.get('/api/users?limit=101', headers=admin)).status_code == 422
 
 
+@pytest.mark.parametrize('password_missing', [True, False], ids=['omitted', 'null'])
+async def test_user_creation_requires_password_without_writes(client, password_missing):
+    """Reject absent creation credentials without changing users or audit history."""
+    http, db = client
+    admin = await login(http)
+    users = await db.users.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = account(password=None)
+    if password_missing:
+        del payload['password']
+    response = await http.post('/api/users', headers=admin, json=payload)
+    assert response.status_code == 422
+    assert response.json() == {'detail': 'Password is required for new users'}
+    assert await db.users.find().sort('_id', 1).to_list(None) == users
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
 async def test_user_mutations_scope_sessions_and_history(client):
     """Persist assignments, enforce scope and retain audit history after hard deletion."""
     http, db = client
     admin = await login(http)
-    portfolio = (await http.post('/api/portfolios', headers=admin, json={'name': 'Scoped'})).json()['id']
-    other = (await http.post('/api/portfolios', headers=admin, json={'name': 'Outside'})).json()['id']
+    response = await http.post('/api/portfolios', headers=admin, json={'name': 'Scoped'})
+    assert response.status_code == 201
+    portfolio = response.json()['id']
+    response = await http.post('/api/portfolios', headers=admin, json={'name': 'Outside'})
+    assert response.status_code == 201
+    other = response.json()['id']
     payload = account(portfolioAccess=[portfolio])
     response = await http.post('/api/users', headers=admin, json=payload)
     assert response.status_code == 201, response.text
@@ -70,7 +91,8 @@ async def test_user_mutations_scope_sessions_and_history(client):
     stored = await db.users.find_one({'_id': ObjectId(uid)})
     assert stored['passwordHash'] != payload['password']
     leader = await login(http, payload['email'], payload['password'])
-    assert (await http.get('/api/portfolios', headers=leader)).json()['total'] == 1
+    response = await http.get('/api/portfolios', headers=leader)
+    assert response.status_code == 200 and response.json()['total'] == 1
     assert (await http.get('/api/portfolios/' + other, headers=leader)).status_code == 404
     changed = {**payload, 'name': 'Changed', 'status': 'Inactive'}
     assert (await http.put('/api/users/' + uid, headers=admin, json=changed)).status_code == 200
@@ -82,7 +104,9 @@ async def test_user_mutations_scope_sessions_and_history(client):
     assert await db.users.find_one({'_id': ObjectId(uid)}) is None
     assert (await http.get('/api/auth/me', headers=leader)).status_code == 401
     assert await db.audit_logs.count_documents({'entityType': 'user', 'entityId': uid}) >= 4
-    logs = (await http.get('/api/audit-logs', headers=admin, params={'userId': uid, 'action': 'login'})).json()
+    response = await http.get('/api/audit-logs', headers=admin, params={'userId': uid, 'action': 'login'})
+    assert response.status_code == 200
+    logs = response.json()
     assert logs['total'] >= 1 and logs['items'][0]['userName'] == 'Changed'
 
 
@@ -90,7 +114,9 @@ async def test_role_edits_hard_restrictions_and_audit_export(client):
     """Role permission grants cannot elevate hard restrictions; CSV neutralizes formulas."""
     http, db = client
     admin = await login(http)
-    roles = (await http.get('/api/roles', headers=admin)).json()['items']
+    response = await http.get('/api/roles', headers=admin)
+    assert response.status_code == 200
+    roles = response.json()['items']
     reader = next(role for role in roles if role['name'] == 'Read Only')
     result = await http.put('/api/roles/' + reader['id'], headers=admin, json={'name': 'Read Only', 'description': 'Test', 'permissions': ['view', 'delete', 'administer']})
     assert result.status_code == 200, result.text
@@ -143,7 +169,9 @@ async def test_specific_audit_events_and_history(client, mongo_uri):
     events = await db.audit_logs.find({'entityId': uid, 'action': 'roleChange'}).to_list(None)
     assert len(events) == 1 and events[0]['userId'] == actor['_id']
     assert 'password' not in str(events).lower() and 'Changed-password-1234' not in str(events)
-    roles = (await http.get('/api/roles', headers=admin)).json()['items']
+    response = await http.get('/api/roles', headers=admin)
+    assert response.status_code == 200
+    roles = response.json()['items']
     role = next(item for item in roles if item['name'] == 'Read Only')
     payload = {'name': role['name'], 'description': 'changed', 'permissions': ['view', 'export']}
     assert (await http.put('/api/roles/' + role['id'], headers=admin, json=payload)).status_code == 200
@@ -169,7 +197,8 @@ async def test_administrator_permission_cannot_be_removed(client):
     before = await db.audit_logs.count_documents({'entityId': str(role['_id'])})
     response = await http.put('/api/roles/' + str(role['_id']), headers=admin,
                               json={'name': 'Administrator', 'description': '', 'permissions': ['view']})
-    assert response.status_code in (409, 422)
+    assert response.status_code == 409
+    assert response.json() == {'detail': 'Administrator must retain administer permission'}
     assert 'administer' in (await db.roles.find_one({'_id': role['_id']}))['permissions']
     assert await db.audit_logs.count_documents({'entityId': str(role['_id'])}) == before
     assert (await http.get('/api/users', headers=admin)).status_code == 200
@@ -197,6 +226,7 @@ async def test_audit_export_filter_snapshot_and_event(client):
     event = await db.audit_logs.find_one({'action': 'export', 'userId': actor['_id']})
     assert event and event['entityType'] == 'audit' and 'password' not in str(event).lower()
     all_export = await http.get('/api/audit-logs', headers=admin, params={'action': 'export', 'format': 'csv'})
+    assert all_export.status_code == 200
     assert len(list(csv.DictReader(io.StringIO(all_export.text)))) == 1
     assert await db.audit_logs.count_documents({'action': 'export'}) == 2
     assert (await http.get('/api/audit-logs', headers=admin, params={'from': '2024-02-03', 'to': '2024-02-02'})).status_code == 422
@@ -281,3 +311,112 @@ async def test_user_transaction_retries_real_write_conflict(client):
         result = await asyncio.wait_for(task, 10)
     assert result['name'] == 'Retried'
     assert await db.audit_logs.count_documents({'entityId': str(user['_id']), 'action': 'edit'}) == 1
+
+
+async def test_user_detail_auth_not_found_and_missing_mutations(client):
+    """Read a user only as admin and reject missing valid IDs without mutations."""
+    http, db = client
+    admin = await login(http)
+    auditor = await login(http, 'auditor@ketsip.local')
+    created = await http.post('/api/users', headers=admin, json=account())
+    assert created.status_code == 201
+    uid = created.json()['id']
+    path = '/api/users/' + uid
+    response = await http.get(path)
+    assert response.status_code == 401
+    response = await http.get(path, headers=auditor)
+    assert response.status_code == 403
+    response = await http.get(path, headers=admin)
+    assert response.status_code == 200
+    body = response.json()
+    assert body['id'] == uid and body['name'] == 'New Leader'
+    assert body['email'] == 'new@example.com' and body['role'] == 'Portfolio Leader'
+    assert body['status'] == 'Active' and body['portfolioAccess'] == []
+    assert 'password' not in response.text.lower()
+    assert (await db.users.find_one({'_id': ObjectId(uid)}))['email'] == body['email']
+    response = await http.get('/api/users/not-an-id', headers=admin)
+    assert response.status_code == 422 and response.json() == {'detail': 'Invalid identifier'}
+    missing = str(ObjectId())
+    before = await db.users.find_one({'_id': ObjectId(uid)})
+    audit_count = await db.audit_logs.count_documents({'entityType': 'user'})
+    for response in (await http.get('/api/users/' + missing, headers=admin),
+                     await http.put('/api/users/' + missing, headers=admin, json=account(password=None)),
+                     await http.delete('/api/users/' + missing, headers=admin)):
+        assert response.status_code == 404
+        assert response.json() == {'detail': 'User not found'}
+    assert await db.users.find_one({'_id': ObjectId(missing)}) is None
+    assert await db.users.find_one({'_id': ObjectId(uid)}) == before
+    assert await db.audit_logs.count_documents({'entityType': 'user'}) == audit_count
+
+
+async def test_role_update_missing_valid_id_does_not_mutate(client):
+    """An absent role cannot be updated or audited."""
+    http, db = client
+    admin = await login(http)
+    missing = str(ObjectId())
+    before = await db.roles.count_documents({})
+    response = await http.put('/api/roles/' + missing, headers=admin,
+                              json={'name': 'Read Only', 'description': '', 'permissions': ['view']})
+    assert response.status_code == 404 and response.json() == {'detail': 'Role not found'}
+    assert await db.roles.count_documents({}) == before
+    assert await db.audit_logs.count_documents({'entityType': 'role', 'entityId': missing}) == 0
+
+
+@pytest.mark.parametrize(('field', 'value', 'error_type'), [
+    ('name', None, 'missing'), ('email', None, 'missing'), ('role', None, 'missing'),
+    ('name', ' \t\n ', 'value_error'),
+    ('portfolioAccess', ['0123456789abcdef01234567'] * 1001, 'too_long'),
+    ('name', 'x' * 201, 'string_too_long'), ('email', 'x' * 255, 'string_too_long'),
+    ('role', 'x' * 201, 'literal_error'),
+    ('name', {'$ne': ''}, 'string_type'), ('email', 123, 'string_type'),
+    ('role', ['Engineer'], 'literal_error'),
+])
+async def test_user_required_fields_validation_is_atomic(client, field, value, error_type):
+    """Reject each missing, oversized or wrong-type field on create and update."""
+    http, db = client
+    admin = await login(http)
+    created = await http.post('/api/users', headers=admin, json=account())
+    assert created.status_code == 201
+    uid = created.json()['id']
+    users = await db.users.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = account()
+    if error_type == 'missing':
+        del payload[field]
+    else:
+        payload[field] = value
+    for response in (await http.post('/api/users', headers=admin, json=payload),
+                     await http.put('/api/users/' + uid, headers=admin, json=payload)):
+        assert response.status_code == 422
+        assert any(error['loc'] == ['body', field] and error['type'] == error_type
+                   for error in response.json()['detail'])
+    assert await db.users.find().sort('_id', 1).to_list(None) == users
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit
+
+
+@pytest.mark.parametrize(('field', 'value', 'error_type'), [
+    ('name', None, 'missing'), ('permissions', None, 'missing'),
+    ('name', 'x' * 201, 'literal_error'), ('description', 'x' * 501, 'string_too_long'),
+    ('permissions', ['view'] * 7, 'too_long'),
+    ('name', {'$ne': ''}, 'literal_error'), ('description', 42, 'string_type'),
+    ('permissions', {'$ne': []}, 'list_type'), ('permissions', [42], 'literal_error'),
+])
+async def test_role_fields_validation_is_atomic(client, field, value, error_type):
+    """Validate role fields separately before create or edit can change state."""
+    http, db = client
+    admin = await login(http)
+    role = await db.roles.find_one({'name': 'Read Only'})
+    roles = await db.roles.find().sort('_id', 1).to_list(None)
+    audit = await db.audit_logs.find().sort('_id', 1).to_list(None)
+    payload = {'name': 'Read Only', 'description': 'Valid', 'permissions': ['view']}
+    if error_type == 'missing':
+        del payload[field]
+    else:
+        payload[field] = value
+    for response in (await http.post('/api/roles', headers=admin, json=payload),
+                     await http.put('/api/roles/' + str(role['_id']), headers=admin, json=payload)):
+        assert response.status_code == 422
+        assert any(error['loc'][:2] == ['body', field] and error['type'] == error_type
+                   for error in response.json()['detail'])
+    assert await db.roles.find().sort('_id', 1).to_list(None) == roles
+    assert await db.audit_logs.find().sort('_id', 1).to_list(None) == audit

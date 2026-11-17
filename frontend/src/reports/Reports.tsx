@@ -71,19 +71,34 @@ export default function Reports({ user }: { user: User }) {
         </div>
       </div>
       {loading && <p role="status">Loading report…</p>}
-      {error && <div role="alert" className="error">{error} <button type="button" className="quiet" onClick={() => setRetry(value => value + 1)}>Retry</button></div>}
+      {error && (
+        <div role="alert" className="error">
+          {error} <button
+            type="button"
+            className="quiet"
+            onClick={() => setRetry(value => value + 1)}
+          >Retry</button>
+        </div>
+      )}
       {!loading && page && (
         <>
           {page.items.length === 0 ? <p>No records found.</p> : (
             <div className="table-wrap">
               <table>
                 <thead>
-                  <tr>{(kind === 'applications' ? ['Application', 'Portfolio', 'Quality score', 'Health score', 'Risk level'] : ['Portfolio', 'Owner', 'Product area', 'Applications', 'Quality score']).map(label => <th scope="col" key={label}>{label}</th>)}</tr>
+                  <tr>
+                    {(kind === 'applications'
+                      ? ['Application', 'Portfolio', 'Quality score', 'Health score', 'Risk level']
+                      : ['Portfolio', 'Owner', 'Product area', 'Applications', 'Quality score']
+                    ).map(label => <th scope="col" key={label}>{label}</th>)}
+                  </tr>
                 </thead>
                 <tbody>
                   {page.items.map(item => kind === 'applications' ? (
                     <tr key={item.id}>
-                      <td><Link to={`/applications/${item.id}`}>{item.name}</Link></td>
+                      <td>
+                        <Link to={`/applications/${item.id}`}>{item.name}</Link>
+                      </td>
                       <td>{(item as Application).portfolioName}</td>
                       <td>{item.qualityScore ?? '—'}</td>
                       <td>{(item as Application).applicationHealthScore}</td>
@@ -91,7 +106,9 @@ export default function Reports({ user }: { user: User }) {
                     </tr>
                   ) : (
                     <tr key={item.id}>
-                      <td><Link to={`/portfolios/${item.id}`}>{item.name}</Link></td>
+                      <td>
+                        <Link to={`/portfolios/${item.id}`}>{item.name}</Link>
+                      </td>
                       <td>{(item as Portfolio).owner}</td>
                       <td>{(item as Portfolio).productArea}</td>
                       <td>{(item as Portfolio).applicationCount}</td>
@@ -105,7 +122,11 @@ export default function Reports({ user }: { user: User }) {
           <div className="pagination">
             <button type="button" disabled={page.offset === 0} onClick={() => change(kind, Math.max(0, page.offset - page.limit))}>Previous</button>
             <span>{page.total} total</span>
-            <button type="button" disabled={page.offset + page.limit >= page.total} onClick={() => change(kind, page.offset + page.limit)}>Next</button>
+            <button
+              type="button"
+              disabled={page.offset + page.limit >= page.total}
+              onClick={() => change(kind, page.offset + page.limit)}
+            >Next</button>
           </div>
         </>
       )}

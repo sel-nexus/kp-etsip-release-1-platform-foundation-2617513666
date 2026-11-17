@@ -49,11 +49,15 @@ async def test_authentication_revocation_and_live_role(client):
     http, db = client
     assert (await http.get("/api/auth/me")).status_code == 401
     assert (await http.get("/api/auth/me", headers={"Authorization": "Bearer broken"})).status_code == 401
-    token = (await login(http)).json()["token"]
+    response = await login(http)
+    assert response.status_code == 200
+    token = response.json()["token"]
     headers = {"Authorization": f"Bearer {token}"}
     assert (await http.get("/api/auth/me", headers=headers)).status_code == 200
     await db.roles.update_one({"name": "Administrator"}, {"$set": {"permissions": ["view"]}})
-    assert (await http.get("/api/auth/me", headers=headers)).json()["permissions"] == ["view"]
+    response = await http.get("/api/auth/me", headers=headers)
+    assert response.status_code == 200
+    assert response.json()["permissions"] == ["view"]
     await db.users.update_one({"email": "admin@ketsip.local"}, {"$set": {"status": "Inactive"}})
     assert (await http.get("/api/auth/me", headers=headers)).status_code == 401
     assert (await login(http)).status_code == 401
@@ -66,10 +70,14 @@ async def test_authentication_revocation_and_live_role(client):
 async def test_profile_and_password_persist_validate_and_revoke(client):
     """Persist preferences and enforce current-password and password rules."""
     http, db = client
-    token = (await login(http)).json()["token"]
+    response = await login(http)
+    assert response.status_code == 200
+    token = response.json()["token"]
     headers = {"Authorization": f"Bearer {token}"}
     assert (await http.put("/api/profile", headers=headers, json={"defaultLandingPage": "bad"})).status_code == 422
-    assert (await http.put("/api/profile", headers=headers, json={"defaultLandingPage": "applications"})).json()["defaultLandingPage"] == "applications"
+    response = await http.put("/api/profile", headers=headers, json={"defaultLandingPage": "applications"})
+    assert response.status_code == 200
+    assert response.json()["defaultLandingPage"] == "applications"
     assert (await db.users.find_one({"email": "admin@ketsip.local"}))["defaultLandingPage"] == "applications"
     path = "/api/profile/password"
     assert (await http.put(path, headers=headers, json={"currentPassword": "wrong", "newPassword": "A-new-password-123"})).status_code == 400

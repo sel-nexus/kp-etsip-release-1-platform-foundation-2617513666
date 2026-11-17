@@ -37,6 +37,12 @@ test('reports display real scoped inventory and export both CSVs', async ({ page
     const downloadedApp = await appDownload;
     expect(downloadedApp.suggestedFilename()).toBe('applications-report.csv');
     expect(await readFile((await downloadedApp.path())!, 'utf8')).toContain(`${name} app`);
+    await page.getByRole('link', { name: `${name} app`, exact: true }).click();
+    await expect(page.getByRole('heading', { name: `${name} app` })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Application details' })).toBeVisible();
+    await expect(page.getByText('Quality score', { exact: true }).locator('..')).toContainText('83');
+    await page.getByRole('link', { name: 'Reports', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible();
     const portfolioResponse = page.waitForResponse(res => res.url().includes('/api/reports/portfolios?') && res.request().method() === 'GET');
     await page.getByLabel('Report').selectOption('portfolios');
     expect((await portfolioResponse).ok()).toBeTruthy();
@@ -55,6 +61,10 @@ test('reports display real scoped inventory and export both CSVs', async ({ page
     const downloadedPortfolio = await portfolioDownload;
     expect(downloadedPortfolio.suggestedFilename()).toBe('portfolios-report.csv');
     expect(await readFile((await downloadedPortfolio.path())!, 'utf8')).toContain(name);
+    await page.getByRole('link', { name, exact: true }).click();
+    await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Portfolio summary' })).toBeVisible();
+    await expect(page.getByRole('link', { name: `${name} app` })).toBeVisible();
   } finally {
     expect((await page.request.delete(`/api/portfolios/${portfolio.id}`, { headers })).status()).toBe(204);
   }

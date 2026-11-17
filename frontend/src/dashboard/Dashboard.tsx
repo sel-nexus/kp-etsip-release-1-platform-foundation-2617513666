@@ -68,50 +68,86 @@ export default function Dashboard() {
       <div className="filters" aria-label="Dashboard filters">
         <div>
           <label htmlFor="dashboard-portfolio">Portfolio</label>
-          <select id="dashboard-portfolio" value={params.get('portfolioId') || ''} onChange={event => filter('portfolioId', event.target.value)}>
+          <select
+            id="dashboard-portfolio"
+            value={params.get('portfolioId') || ''}
+            onChange={event => filter('portfolioId', event.target.value)}
+          >
             <option value="">All portfolios</option>
             {portfolios.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}
           </select>
         </div>
         <div>
           <label htmlFor="dashboard-area">Product area</label>
-          <select id="dashboard-area" value={params.get('productArea') || ''} onChange={event => filter('productArea', event.target.value)}>
+          <select
+            id="dashboard-area"
+            value={params.get('productArea') || ''}
+            onChange={event => filter('productArea', event.target.value)}
+          >
             <option value="">All product areas</option>
             {areas.map(area => <option key={area} value={area}>{area}</option>)}
           </select>
         </div>
         <div>
           <label htmlFor="dashboard-risk">Risk level</label>
-          <select id="dashboard-risk" value={params.get('riskLevel') || ''} onChange={event => filter('riskLevel', event.target.value)}>
+          <select
+            id="dashboard-risk"
+            value={params.get('riskLevel') || ''}
+            onChange={event => filter('riskLevel', event.target.value)}
+          >
             <option value="">All risk levels</option>
-            <option value="Low">Low</option><option value="Medium">Medium</option><option value="High">High</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </div>
         <button className="quiet dashboard-clear" type="button" onClick={() => setParams({})}>Clear filters</button>
       </div>
       {loading && <p role="status">Loading dashboard…</p>}
-      {!loading && error && <div role="alert" className="error">{error} <button type="button" onClick={() => setRetry(value => value + 1)}>Retry</button></div>}
+      {!loading && error && <div role="alert" className="error">
+        {error} <button type="button" onClick={() => setRetry(value => value + 1)}>Retry</button>
+      </div>}
       {!loading && !error && data && <>
         {data.totalApplications === 0 && <p role="status" className="muted">No applications match the selected filters.</p>}
         <dl className="dashboard-metrics">
-          {cards.map(([label, value]) => <div className="card dashboard-metric" key={label}><dt>{label}</dt><dd>{display(value)}</dd></div>)}
+          {cards.map(([label, value]) => <div className="card dashboard-metric" key={label}>
+            <dt>{label}</dt>
+            <dd>{display(value)}</dd>
+          </div>)}
         </dl>
         <div className="dashboard-bars">
           <section className="card" aria-labelledby="quality-bars">
             <h2 id="quality-bars">Portfolio Quality Score</h2>
             {!data.portfolios.length && <p className="muted">No portfolios match the selected filters.</p>}
-            <ul>{data.portfolios.map(item => <li key={item.id}>
-              <div className="bar-label"><span>{item.name}</span><strong>{display(item.qualityScore)}</strong></div>
-              <div className="bar-track" aria-hidden="true"><div className="bar-fill" style={{ width: `${item.qualityScore ?? 0}%` }} /></div>
-            </li>)}</ul>
+            <ul>
+              {data.portfolios.map(item => <li key={item.id}>
+                <div className="bar-label">
+                  <span>{item.name}</span>
+                  <strong>{display(item.qualityScore)}</strong>
+                </div>
+                <div className="bar-track" aria-hidden="true">
+                  <div className="bar-fill" style={{ width: `${item.qualityScore ?? 0}%` }} />
+                </div>
+              </li>)}
+            </ul>
           </section>
           <section className="card" aria-labelledby="risk-bars">
             <h2 id="risk-bars">Applications at Risk by portfolio</h2>
             {!data.portfolios.length && <p className="muted">No portfolios match the selected filters.</p>}
-            <ul>{data.portfolios.map(item => <li key={item.id}>
-              <div className="bar-label"><span>{item.name}</span><strong>{item.applicationsAtRisk} of {item.applicationCount}</strong></div>
-              <div className="bar-track" aria-hidden="true"><div className="bar-fill" style={{ width: `${item.applicationCount ? item.applicationsAtRisk / item.applicationCount * 100 : 0}%` }} /></div>
-            </li>)}</ul>
+            <ul>
+              {data.portfolios.map(item => <li key={item.id}>
+                <div className="bar-label">
+                  <span>{item.name}</span>
+                  <strong>{item.applicationsAtRisk} of {item.applicationCount}</strong>
+                </div>
+                <div className="bar-track" aria-hidden="true">
+                  <div
+                    className="bar-fill"
+                    style={{ width: `${item.applicationCount ? item.applicationsAtRisk / item.applicationCount * 100 : 0}%` }}
+                  />
+                </div>
+              </li>)}
+            </ul>
           </section>
         </div>
       </>}
