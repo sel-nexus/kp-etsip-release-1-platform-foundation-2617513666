@@ -1745,6 +1745,226 @@
       "community": 0
     },
     {
+      "id": "backend_app_dashboard_init",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_init_rationale_1",
+      "label": "Provide the executive dashboard feature.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router",
+      "label": "router.py",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_portfoliometrics",
+      "label": "PortfolioMetrics",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L13",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_py_basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_executivemetrics",
+      "label": "ExecutiveMetrics",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L22",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_service",
+      "label": "service()",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L34",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_py_get",
+      "label": "get",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_executive",
+      "label": "executive()",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L40",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_py_depends",
+      "label": "Depends",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_rationale_1",
+      "label": "Expose the authenticated executive dashboard.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_rationale_14",
+      "label": "Describe the metrics for one visible portfolio.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_rationale_23",
+      "label": "Describe the complete filtered executive scorecard.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_rationale_35",
+      "label": "Bind the dashboard service to the pooled database.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L35",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_router_rationale_45",
+      "label": "Return metrics for visible portfolios and their matching applications.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service",
+      "label": "service.py",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_dashboardservice",
+      "label": "DashboardService",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L10",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_dashboardservice_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_py_asyncdatabase",
+      "label": "AsyncDatabase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_dashboardservice_executive",
+      "label": ".executive()",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_dashboardservice_executive_average",
+      "label": "average()",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L55",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_dashboardservice_executive_total",
+      "label": "total()",
+      "file_type": "code",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L59",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_rationale_1",
+      "label": "Aggregate visible portfolio inventory for the executive dashboard.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_rationale_11",
+      "label": "Apply the shared visibility policy and derive dashboard metrics.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_rationale_14",
+      "label": "Bind the pooled database and existing portfolio policy.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_app_dashboard_service_rationale_20",
+      "label": "Summarize filtered inventory without disclosing inaccessible portfolios.",
+      "file_type": "rationale",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
       "id": "backend_app_main",
       "label": "main.py",
       "file_type": "code",
@@ -1758,7 +1978,7 @@
       "label": "create_app()",
       "file_type": "code",
       "source_file": "backend/app/main.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "_callable": true,
       "_origin": "ast",
       "community": 2
@@ -1777,7 +1997,7 @@
       "label": "lifespan()",
       "file_type": "code",
       "source_file": "backend/app/main.py",
-      "source_location": "L18",
+      "source_location": "L19",
       "_callable": true,
       "_origin": "ast",
       "community": 2
@@ -1787,7 +2007,7 @@
       "label": "health()",
       "file_type": "code",
       "source_file": "backend/app/main.py",
-      "source_location": "L48",
+      "source_location": "L50",
       "_callable": true,
       "_origin": "ast",
       "community": 2
@@ -1802,11 +2022,11 @@
       "community": 2
     },
     {
-      "id": "backend_app_main_rationale_16",
+      "id": "backend_app_main_rationale_17",
       "label": "Build the application, deferring configuration and I/O until startup.",
       "file_type": "rationale",
       "source_file": "backend/app/main.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast"
     },
     {
@@ -2947,6 +3167,107 @@
       "community": 19
     },
     {
+      "id": "backend_tests_test_dashboard",
+      "label": "test_dashboard.py",
+      "file_type": "code",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_login",
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_inventory",
+      "label": "inventory()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "label": "test_service_and_api_formulas_and_rounding()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L30",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_test_filters_and_empty_portfolio_rules",
+      "label": "test_filters_and_empty_portfolio_rules()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L47",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_test_live_permissions_leader_scope_and_auth",
+      "label": "test_live_permissions_leader_scope_and_auth()",
+      "file_type": "code",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L66",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_rationale_1",
+      "label": "Exercise dashboard calculations and authorization against real MongoDB.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_rationale_8",
+      "label": "Sign in as a seeded user.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_rationale_15",
+      "label": "Insert two populated portfolios and one empty portfolio.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_rationale_31",
+      "label": "Derive weighted averages, half-up rounding, sums and portfolio metrics.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L31",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_rationale_48",
+      "label": "Apply intersecting portfolio, product area, and risk filters.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L48",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_tests_test_dashboard_rationale_67",
+      "label": "Reject missing sessions and apply live permissions and assigned scope.",
+      "file_type": "rationale",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L67",
+      "_origin": "ast"
+    },
+    {
       "id": "backend_tests_test_portfolios",
       "label": "test_portfolios.py",
       "file_type": "code",
@@ -3063,6 +3384,14 @@
       "source_location": "L1",
       "_origin": "ast",
       "community": 3
+    },
+    {
+      "id": "frontend_e2e_dashboard_spec",
+      "label": "dashboard.spec.ts",
+      "file_type": "code",
+      "source_file": "frontend/e2e/dashboard.spec.ts",
+      "source_location": "L1",
+      "_origin": "ast"
     },
     {
       "id": "frontend_e2e_portfolios_spec",
@@ -3590,11 +3919,20 @@
       "community": 4
     },
     {
+      "id": "frontend_src_app_landingpath",
+      "label": "landingPath()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_src_app_identityapp",
       "label": "IdentityApp()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L13",
+      "source_location": "L21",
       "_callable": true,
       "_origin": "ast",
       "community": 4
@@ -3604,7 +3942,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L46",
+      "source_location": "L56",
       "_callable": true,
       "_origin": "ast",
       "community": 4
@@ -3938,6 +4276,65 @@
       "community": 4
     },
     {
+      "id": "frontend_src_dashboard_dashboard_test",
+      "label": "Dashboard.test.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_dashboard_dashboard_test_metrics",
+      "label": "metrics",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_dashboard_dashboard_test_page",
+      "label": "page",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_dashboard_dashboard",
+      "label": "Dashboard.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_dashboard_dashboard_dashboard",
+      "label": "Dashboard()",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_dashboard_dashboard_dashboard_load",
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L20",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_dashboard_dashboard_dashboard_filter",
+      "label": "filter()",
+      "file_type": "code",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L44",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_src_main",
       "label": "main.tsx",
       "file_type": "code",
@@ -4137,6 +4534,26 @@
       "file_type": "code",
       "source_file": "frontend/src/types.ts",
       "source_location": "L49",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_types_dashboardportfolio",
+      "label": "DashboardPortfolio",
+      "file_type": "code",
+      "source_file": "frontend/src/types.ts",
+      "source_location": "L51",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_types_dashboardmetrics",
+      "label": "DashboardMetrics",
+      "file_type": "code",
+      "source_file": "frontend/src/types.ts",
+      "source_location": "L54",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast"
@@ -7396,6 +7813,392 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_app_dashboard_init_rationale_1",
+      "target": "backend_app_dashboard_init",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/__init__.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_auth_router",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_core_database",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_dashboard_service",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_dashboard_router_portfoliometrics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_portfoliometrics",
+      "target": "backend_app_dashboard_router_py_basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_dashboard_router_executivemetrics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executivemetrics",
+      "target": "backend_app_dashboard_router_py_basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_dashboard_router_service",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_service",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executive",
+      "target": "backend_app_dashboard_router_py_get",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_dashboard_router_executive",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executive",
+      "target": "backend_app_dashboard_router_py_depends",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executive",
+      "target": "backend_app_auth_router_current_session",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executive",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executive",
+      "target": "backend_app_dashboard_router_service",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_rationale_1",
+      "target": "backend_app_dashboard_router",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_rationale_14",
+      "target": "backend_app_dashboard_router_portfoliometrics",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_rationale_23",
+      "target": "backend_app_dashboard_router_executivemetrics",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_rationale_35",
+      "target": "backend_app_dashboard_router_service",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_rationale_45",
+      "target": "backend_app_dashboard_router_executive",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service",
+      "target": "backend_app_portfolios_repository",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service",
+      "target": "backend_app_portfolios_service",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice",
+      "target": "backend_app_dashboard_service_dashboardservice_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_init",
+      "target": "backend_app_dashboard_service_py_asyncdatabase",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice",
+      "target": "backend_app_dashboard_service_dashboardservice_executive",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_executive",
+      "target": "backend_app_dashboard_service_dashboardservice_executive_average",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_executive",
+      "target": "backend_app_dashboard_service_dashboardservice_executive_total",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_executive",
+      "target": "backend_app_dashboard_service_dashboardservice_executive_average",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_executive",
+      "target": "backend_app_dashboard_service_dashboardservice_executive_total",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_rationale_1",
+      "target": "backend_app_dashboard_service",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_rationale_11",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_rationale_14",
+      "target": "backend_app_dashboard_service_dashboardservice_init",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_rationale_20",
+      "target": "backend_app_dashboard_service_dashboardservice_executive",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_app_main",
       "target": "fastapi",
       "relation": "imports_from",
@@ -7441,7 +8244,7 @@
     },
     {
       "source": "backend_app_main",
-      "target": "backend_app_core_config",
+      "target": "backend_app_dashboard_router",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -7452,7 +8255,7 @@
     },
     {
       "source": "backend_app_main",
-      "target": "backend_app_core_database",
+      "target": "backend_app_core_config",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -7463,7 +8266,7 @@
     },
     {
       "source": "backend_app_main",
-      "target": "backend_app_core_seed",
+      "target": "backend_app_core_database",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -7474,11 +8277,22 @@
     },
     {
       "source": "backend_app_main",
+      "target": "backend_app_core_seed",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/main.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_main",
       "target": "backend_app_main_create_app",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -7489,7 +8303,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -7500,7 +8314,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -7510,7 +8324,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -7520,7 +8334,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -7532,7 +8346,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "backend/app/main.py",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -7547,12 +8361,12 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_app_main_rationale_16",
+      "source": "backend_app_main_rationale_17",
       "target": "backend_app_main_create_app",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -9732,6 +10546,193 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_app_dashboard_service",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_tests_test_dashboard_login",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_tests_test_dashboard_inventory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_tests_test_dashboard_test_filters_and_empty_portfolio_rules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_tests_test_dashboard_test_live_permissions_leader_scope_and_auth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "target": "backend_tests_test_dashboard_inventory",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "target": "backend_tests_test_dashboard_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_filters_and_empty_portfolio_rules",
+      "target": "backend_tests_test_dashboard_inventory",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_filters_and_empty_portfolio_rules",
+      "target": "backend_tests_test_dashboard_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_live_permissions_leader_scope_and_auth",
+      "target": "backend_tests_test_dashboard_inventory",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_live_permissions_leader_scope_and_auth",
+      "target": "backend_tests_test_dashboard_login",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_rationale_1",
+      "target": "backend_tests_test_dashboard",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_rationale_8",
+      "target": "backend_tests_test_dashboard_login",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_rationale_15",
+      "target": "backend_tests_test_dashboard_inventory",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_rationale_31",
+      "target": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_rationale_48",
+      "target": "backend_tests_test_dashboard_test_filters_and_empty_portfolio_rules",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_rationale_67",
+      "target": "backend_tests_test_dashboard_test_live_permissions_leader_scope_and_auth",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_portfolios",
       "target": "fastapi",
       "relation": "imports_from",
@@ -9936,6 +10937,17 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/e2e/auth.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_e2e_dashboard_spec",
+      "target": "ref_playwright_test",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/dashboard.spec.ts",
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast"
@@ -10635,11 +11647,55 @@
     },
     {
       "source": "frontend_src_app",
+      "target": "frontend_src_dashboard_dashboard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "type_only": true,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_types_user",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_app_landingpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
       "target": "frontend_src_app_identityapp",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L13",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -10649,7 +11705,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L46",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_identityapp",
+      "target": "frontend_src_app_landingpath",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -10660,7 +11727,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L47",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -11583,6 +12650,211 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "ref_vitest",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "ref_testing_library_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "ref_react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "frontend_src_dashboard_dashboard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "frontend_src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "frontend_src_dashboard_dashboard_test_metrics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "frontend_src_dashboard_dashboard_test_page",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "ref_react_router_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_api",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_api_request",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "type_only": true,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_types_dashboardmetrics",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_types_page",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_types_portfolio",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard",
+      "target": "frontend_src_dashboard_dashboard_dashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_dashboard",
+      "target": "frontend_src_dashboard_dashboard_dashboard_load",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_dashboard",
+      "target": "frontend_src_dashboard_dashboard_dashboard_filter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_dashboard",
+      "target": "frontend_src_dashboard_dashboard_dashboard_load",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_main",
       "target": "ref_react",
       "relation": "imports_from",
@@ -12166,6 +13438,26 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_types",
+      "target": "frontend_src_types_dashboardportfolio",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/types.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_types",
+      "target": "frontend_src_types_dashboardmetrics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/types.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_tailwind_config",
       "target": "ref_tailwindcss",
       "relation": "imports_from",
@@ -12428,6 +13720,17 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_app",
+      "target": "frontend_src_dashboard_dashboard_dashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_applications_applicationlist_test",
       "target": "frontend_src_applications_applicationlist_applicationlist",
       "relation": "imports",
@@ -12479,6 +13782,28 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/auth/Login.test.tsx",
       "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "frontend_src_dashboard_dashboard_dashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_dashboard_dashboard_test",
+      "target": "frontend_src_app_app",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/dashboard/Dashboard.test.tsx",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -12791,19 +14116,63 @@
       "_origin": "ast"
     },
     {
-      "source": "backend_app_main",
-      "target": "backend_app_core_config_settings",
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_auth_router_current_session",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "backend/app/main.py",
-      "source_location": "L10",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_core_database_get_database",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service",
+      "target": "backend_app_portfolios_repository_portfoliorepository",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service",
+      "target": "backend_app_portfolios_service_portfolioservice",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "backend_app_main",
-      "target": "backend_app_core_database_create_indexes",
+      "target": "backend_app_core_config_settings",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -12814,12 +14183,23 @@
     },
     {
       "source": "backend_app_main",
-      "target": "backend_app_core_seed_seed_database",
+      "target": "backend_app_core_database_create_indexes",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
       "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_main",
+      "target": "backend_app_core_seed_seed_database",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/main.py",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -13055,6 +14435,17 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_dashboard",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_portfolios",
       "target": "backend_app_portfolios_repository_portfoliorepository",
       "relation": "imports",
@@ -13094,7 +14485,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -13253,13 +14644,24 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_app_dashboard_router_service",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_app_main_create_app",
       "target": "backend_app_core_config_settings",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -13270,7 +14672,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -13281,7 +14683,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/app/main.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -13524,6 +14926,17 @@
       "confidence": "EXTRACTED",
       "source_file": "backend/tests/test_auth.py",
       "source_location": "L195",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -13869,13 +15282,57 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_app_dashboard_router_service",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L34",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_router_executive",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/app/dashboard/router.py",
+      "source_location": "L41",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice",
+      "target": "backend_app_portfolios_repository_portfoliorepository",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice",
+      "target": "backend_app_portfolios_service_portfolioservice",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_app_main_create_app",
       "target": "backend_app_core_config_settings",
       "relation": "uses",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "backend/app/main.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 0.8,
       "_origin": "ast"
     },
@@ -14221,6 +15678,17 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "target": "backend_app_dashboard_service_dashboardservice",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L35",
+      "weight": 0.8,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_portfolios_test_direct_service_and_transaction_rollback",
       "target": "backend_app_portfolios_repository_portfoliorepository",
       "relation": "uses",
@@ -14326,6 +15794,30 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_app_dashboard_service_dashboardservice_init",
+      "target": "backend_app_portfolios_service_portfolioservice",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_init",
+      "target": "backend_app_portfolios_repository_portfoliorepository",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_app_main_create_app_lifespan",
       "target": "backend_app_core_config_settings",
       "relation": "calls",
@@ -14333,7 +15825,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/app/main.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14345,7 +15837,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/app/main.py",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14357,7 +15849,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/app/main.py",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14381,7 +15873,19 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L17",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_identityapp",
+      "target": "frontend_src_dashboard_dashboard_dashboard",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14393,7 +15897,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L31",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14405,7 +15909,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L32",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14417,7 +15921,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L33",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14429,7 +15933,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L34",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14441,7 +15945,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L36",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14453,7 +15957,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L37",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14465,7 +15969,31 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L38",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_executive",
+      "target": "backend_app_portfolios_service_portfolioservice_authorize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_app_dashboard_service_dashboardservice_executive",
+      "target": "backend_app_portfolios_service_portfolioservice_scope",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/app/dashboard/service.py",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -14602,6 +16130,18 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_tests_test_dashboard_test_service_and_api_formulas_and_rounding",
+      "target": "backend_app_dashboard_service_dashboardservice_executive",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/tests/test_dashboard.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "backend_tests_test_portfolios_test_direct_service_and_transaction_rollback",
       "target": "backend_app_portfolios_service_portfolioservice_save",
       "relation": "calls",
@@ -14636,6 +16176,240 @@
       "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast"
+    },
+    {
+      "source": "backend_app_applications_repository_applicationrepository",
+      "target": "backend_app_applications_service_applicationservice_init",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/service.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_service_applicationservice_init",
+      "_tgt": "backend_app_applications_repository_applicationrepository"
+    },
+    {
+      "source": "backend_app_applications_router_service",
+      "target": "backend_app_applications_router_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_application",
+      "_tgt": "backend_app_applications_router_service"
+    },
+    {
+      "source": "backend_app_applications_router_service",
+      "target": "backend_app_applications_router_create_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_create_application",
+      "_tgt": "backend_app_applications_router_service"
+    },
+    {
+      "source": "backend_app_applications_router_service",
+      "target": "backend_app_applications_router_delete_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_delete_application",
+      "_tgt": "backend_app_applications_router_service"
+    },
+    {
+      "source": "backend_app_applications_router_service",
+      "target": "backend_app_applications_router_list_applications",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_list_applications",
+      "_tgt": "backend_app_applications_router_service"
+    },
+    {
+      "source": "backend_app_applications_router_service",
+      "target": "backend_app_applications_router_update_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_update_application",
+      "_tgt": "backend_app_applications_router_service"
+    },
+    {
+      "source": "backend_app_applications_router_py_get",
+      "target": "backend_app_applications_router_application",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_application",
+      "_tgt": "backend_app_applications_router_py_get"
+    },
+    {
+      "source": "backend_app_applications_router_py_get",
+      "target": "backend_app_applications_router_list_applications",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_list_applications",
+      "_tgt": "backend_app_applications_router_py_get"
+    },
+    {
+      "source": "backend_app_applications_router_py_depends",
+      "target": "backend_app_applications_router_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_application",
+      "_tgt": "backend_app_applications_router_py_depends"
+    },
+    {
+      "source": "backend_app_applications_router_py_depends",
+      "target": "backend_app_applications_router_create_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_create_application",
+      "_tgt": "backend_app_applications_router_py_depends"
+    },
+    {
+      "source": "backend_app_applications_router_py_depends",
+      "target": "backend_app_applications_router_delete_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_delete_application",
+      "_tgt": "backend_app_applications_router_py_depends"
+    },
+    {
+      "source": "backend_app_applications_router_py_depends",
+      "target": "backend_app_applications_router_update_application",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_update_application",
+      "_tgt": "backend_app_applications_router_py_depends"
+    },
+    {
+      "source": "backend_app_applications_router_py_response",
+      "target": "backend_app_applications_router_delete_application",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_delete_application",
+      "_tgt": "backend_app_applications_router_py_response"
+    },
+    {
+      "source": "backend_app_applications_router_py_post",
+      "target": "backend_app_applications_router_create_application",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_create_application",
+      "_tgt": "backend_app_applications_router_py_post"
+    },
+    {
+      "source": "backend_app_applications_router_py_put",
+      "target": "backend_app_applications_router_update_application",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_update_application",
+      "_tgt": "backend_app_applications_router_py_put"
+    },
+    {
+      "source": "backend_app_applications_router_py_delete",
+      "target": "backend_app_applications_router_delete_application",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/router.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_applications_router_delete_application",
+      "_tgt": "backend_app_applications_router_py_delete"
+    },
+    {
+      "source": "backend_app_applications_schemas_applicationinput",
+      "target": "backend_app_applications_service_applicationservice_save",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/service.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_app_applications_service_applicationservice_save",
+      "_tgt": "backend_app_applications_schemas_applicationinput"
+    },
+    {
+      "source": "backend_app_applications_schemas_py_field_validator",
+      "target": "backend_app_applications_schemas_applicationinput_valid_portfolio",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/applications/schemas.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_applications_schemas_applicationinput_valid_portfolio",
+      "_tgt": "backend_app_applications_schemas_py_field_validator"
     },
     {
       "source": "backend_app_auth_repository_authrepository",
@@ -14808,8 +16582,8 @@
       "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_create_portfolio",
-      "_tgt": "backend_app_auth_router_current_session"
+      "_src": "backend_app_auth_router_current_session",
+      "_tgt": "backend_app_portfolios_router_create_portfolio"
     },
     {
       "source": "backend_app_auth_router_current_session",
@@ -14821,8 +16595,8 @@
       "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_delete_portfolio",
-      "_tgt": "backend_app_auth_router_current_session"
+      "_src": "backend_app_auth_router_current_session",
+      "_tgt": "backend_app_portfolios_router_delete_portfolio"
     },
     {
       "source": "backend_app_auth_router_current_session",
@@ -14834,8 +16608,8 @@
       "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_linked_applications",
-      "_tgt": "backend_app_auth_router_current_session"
+      "_src": "backend_app_auth_router_current_session",
+      "_tgt": "backend_app_portfolios_router_linked_applications"
     },
     {
       "source": "backend_app_auth_router_current_session",
@@ -14847,8 +16621,8 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_list_portfolios",
-      "_tgt": "backend_app_auth_router_current_session"
+      "_src": "backend_app_auth_router_current_session",
+      "_tgt": "backend_app_portfolios_router_list_portfolios"
     },
     {
       "source": "backend_app_auth_router_current_session",
@@ -14860,8 +16634,8 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_portfolio",
-      "_tgt": "backend_app_auth_router_current_session"
+      "_src": "backend_app_auth_router_current_session",
+      "_tgt": "backend_app_portfolios_router_portfolio"
     },
     {
       "source": "backend_app_auth_router_current_session",
@@ -14873,8 +16647,8 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_update_portfolio",
-      "_tgt": "backend_app_auth_router_current_session"
+      "_src": "backend_app_auth_router_current_session",
+      "_tgt": "backend_app_portfolios_router_update_portfolio"
     },
     {
       "source": "backend_app_auth_router_py_depends",
@@ -15055,8 +16829,8 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_core_config_settings_validate_secret",
-      "_tgt": "backend_app_core_config_py_field_validator"
+      "_src": "backend_app_core_config_py_field_validator",
+      "_tgt": "backend_app_core_config_settings_validate_secret"
     },
     {
       "source": "backend_app_core_database_py_asyncdatabase",
@@ -15081,8 +16855,8 @@
       "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_service_portfolioservice_init",
-      "_tgt": "backend_app_portfolios_repository_portfoliorepository"
+      "_src": "backend_app_portfolios_repository_portfoliorepository",
+      "_tgt": "backend_app_portfolios_service_portfolioservice_init"
     },
     {
       "source": "backend_app_portfolios_router_service",
@@ -15159,8 +16933,8 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_update_portfolio",
-      "_tgt": "backend_app_portfolios_router_service"
+      "_src": "backend_app_portfolios_router_service",
+      "_tgt": "backend_app_portfolios_router_update_portfolio"
     },
     {
       "source": "backend_app_portfolios_router_py_get",
@@ -15263,8 +17037,8 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_update_portfolio",
-      "_tgt": "backend_app_portfolios_router_py_depends"
+      "_src": "backend_app_portfolios_router_py_depends",
+      "_tgt": "backend_app_portfolios_router_update_portfolio"
     },
     {
       "source": "backend_app_portfolios_router_py_post",
@@ -15289,8 +17063,21 @@
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
-      "_src": "backend_app_portfolios_router_update_portfolio",
-      "_tgt": "backend_app_portfolios_router_py_put"
+      "_src": "backend_app_portfolios_router_py_put",
+      "_tgt": "backend_app_portfolios_router_update_portfolio"
+    },
+    {
+      "source": "backend_app_portfolios_router_py_delete",
+      "target": "backend_app_portfolios_router_delete_portfolio",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/portfolios/router.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "_src": "backend_app_portfolios_router_delete_portfolio",
+      "_tgt": "backend_app_portfolios_router_py_delete"
     },
     {
       "source": "backend_app_portfolios_schemas_portfolioinput",
@@ -15302,8 +17089,8 @@
       "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_app_portfolios_service_portfolioservice_save",
-      "_tgt": "backend_app_portfolios_schemas_portfolioinput"
+      "_src": "backend_app_portfolios_schemas_portfolioinput",
+      "_tgt": "backend_app_portfolios_service_portfolioservice_save"
     },
     {
       "source": "fixture",
@@ -15346,10 +17133,10 @@
     }
   ],
   "metadata": {
-    "built_at": "2026-11-17T18:39:46.719873+00:00",
+    "built_at": "2026-11-17T18:43:12.728734+00:00",
     "version": "graph_update-v1",
     "codebase_root": "C:\\artifacts-v2\\T0132PcJVCRTV000417112617513666\\developer",
     "force": true,
-    "files_scanned": 52
+    "files_scanned": 59
   }
 }

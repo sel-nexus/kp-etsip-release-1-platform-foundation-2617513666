@@ -1,13 +1,16 @@
 """Assemble the API and manage its pooled MongoDB connection."""
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo import AsyncMongoClient
 from app.auth.router import router
 from app.portfolios.router import router as portfolios_router
 from app.applications.router import router as applications_router
 from app.dashboard.router import router as dashboard_router
+from app.admin.router import router as admin_router
 from app.core.config import Settings
 from app.core.database import create_indexes
 from app.core.seed import seed_database
@@ -31,6 +34,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             await client.close()
 
     app = FastAPI(title="KP ETSIP API", version="1.0", lifespan=lifespan)
+    @app.exception_handler(RequestValidationError)
+    async def validation_error(request: Request, exc: RequestValidationError) -> JSONResponse:
+        """Return validation details without echoing submitted credentials."""
+        return JSONResponse(status_code=422, content={'detail': [{'loc': list(error['loc']), 'msg': error['msg'], 'type': error['type']} for error in exc.errors()]})
+
     # Resolve origins at request time through configuration, but allow importing without secrets.
     config = settings
     if config is None:
@@ -45,6 +53,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(portfolios_router)
     app.include_router(applications_router)
     app.include_router(dashboard_router)
+    app.include_router(admin_router)
 
     @app.get("/api/health", tags=["health"])
     async def health() -> dict[str, str]:

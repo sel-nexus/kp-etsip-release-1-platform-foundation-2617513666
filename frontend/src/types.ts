@@ -11,6 +11,9 @@ export interface User {
 }
 
 export interface LoginResponse { token: string; user: User }
+export interface AdminUserInput { name: string; email: string; role: string; status: string; portfolioAccess: string[]; password?: string }
+export interface AdminRole { id: string; name: string; description: string; permissions: string[] }
+export interface AuditEntry { id: string; timestamp: string; userId: string | null; userName: string; action: string; entityType: string; entityId: string | null; details: string }
 
 export interface PortfolioInput {
   name: string;

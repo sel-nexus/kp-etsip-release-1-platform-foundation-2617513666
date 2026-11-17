@@ -37,7 +37,7 @@ async def test_seed_login_and_failure_audit(client):
     assert claims["role"] == "Administrator"
     assert (await login(http, password="wrong")).status_code == 401
     assert (await login(http, email="unknown@ketsip.local")).status_code == 401
-    records = await db.audit_logs.find({"action": "login"}).to_list(None)
+    records = await db.audit_logs.find({"action": "login"}).sort([("timestamp", 1), ("_id", 1)]).to_list(None)
     assert [r["details"] for r in records] == ["Login succeeded", "Login failed", "Login failed"]
     assert records[-1]["userId"] is None and records[-1]["userName"] == "Unknown user"
     assert "wrong" not in str(records)
