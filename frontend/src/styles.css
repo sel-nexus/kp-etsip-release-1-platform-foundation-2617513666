@@ -76,3 +76,13 @@ th { color: var(--on-surface-variant); font-size: 14px; }
 .pagination, .actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
 .portfolio-form { max-width: 640px; }
 .portfolio-form textarea { font: inherit; width: 100%; padding: 10px 12px; border: 1px solid var(--outline); border-radius: 4px; margin-bottom: 20px; }
+.dashboard-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0 32px; }
+.dashboard-metric dt { margin: 0; }
+.dashboard-metric dd { color: var(--forest); font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.dashboard-bars { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 24px; }
+.dashboard-bars ul { list-style: none; padding: 0; margin: 16px 0 0; }
+.dashboard-bars li { padding: 16px 0; border-bottom: 1px solid var(--card-border); }
+.bar-label { display: flex; justify-content: space-between; gap: 16px; }
+.bar-track { height: 8px; background: var(--surface-container); border-radius: 4px; margin-top: 8px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--secondary); }
+.dashboard-clear { align-self: end; }

@@ -12,7 +12,6 @@ test('administrator maintains and exports application inventory', async ({ page 
   await page.getByLabel('Email address').fill('admin@ketsip.local');
   await page.getByLabel('Password').fill(password);
   await page.getByRole('button', { name: 'Sign in' }).click();
-  await expect(page.getByRole('heading', { name: 'Application repository' })).toBeVisible();
   await page.getByRole('link', { name: 'Portfolios', exact: true }).click();
   await page.getByRole('link', { name: 'Create portfolio' }).click();
   await page.getByLabel('Name', { exact: true }).fill(portfolio);

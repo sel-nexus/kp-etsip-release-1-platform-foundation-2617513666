@@ -8,19 +8,28 @@ import PortfolioForm from './portfolios/PortfolioForm';
 import ApplicationList from './applications/ApplicationList';
 import ApplicationDetail from './applications/ApplicationDetail';
 import ApplicationForm from './applications/ApplicationForm';
+import Dashboard from './dashboard/Dashboard';
+import type { User } from './types';
+
+/** Resolve the persisted landing preference, falling back to the role default. */
+function landingPath(user: User): string {
+  const landing = user.defaultLandingPage || (['Administrator', 'Executive'].includes(user.role) ? 'dashboard' : 'applications');
+  return landing === 'dashboard' ? '/dashboard' : '/applications';
+}
 
 /** Wire identity routes to the real API-backed session. */
 function IdentityApp() {
   const auth = useAuth();
   const navigate = useNavigate();
   if (auth.loading) return <main className="page" role="status">Restoring session…</main>;
-  if (!auth.user) return <Login sessionError={auth.sessionError} onLogin={async (email, password) => { await auth.login(email, password); navigate('/applications'); }} />;
+  if (!auth.user) return <Login sessionError={auth.sessionError} onLogin={async (email, password) => { const signedIn = await auth.login(email, password); navigate(landingPath(signedIn), { replace: true }); }} />;
   const user = auth.user;
   return (
     <>
       <header className="topbar">
         <Link className="brand" to="/profile">KP ETSIP <span>Platform Foundation</span></Link>
         <nav aria-label="Account navigation">
+          <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/applications">Applications</NavLink>
           <NavLink to="/portfolios">Portfolios</NavLink>
           <NavLink to="/profile">My profile</NavLink>
@@ -28,6 +37,7 @@ function IdentityApp() {
         </nav>
       </header>
       <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile user={user} onUser={auth.setUser} onSessionEnd={() => { auth.setUser(null); navigate('/'); }} />} />
         <Route path="/portfolios" element={<PortfolioList user={user} />} />
         <Route path="/portfolios/new" element={<PortfolioForm user={user} />} />
@@ -37,7 +47,7 @@ function IdentityApp() {
         <Route path="/applications/new" element={<ApplicationForm user={user} />} />
         <Route path="/applications/:id" element={<ApplicationDetail user={user} />} />
         <Route path="/applications/:id/edit" element={<ApplicationForm user={user} />} />
-        <Route path="*" element={<Navigate to="/applications" replace />} />
+        <Route path="*" element={<Navigate to={landingPath(user)} replace />} />
       </Routes>
     </>
   );
