@@ -11,6 +11,7 @@ from app.portfolios.router import router as portfolios_router
 from app.applications.router import router as applications_router
 from app.dashboard.router import router as dashboard_router
 from app.admin.router import router as admin_router
+from app.reports.router import router as reports_router
 from app.core.config import Settings
 from app.core.database import create_indexes
 from app.core.seed import seed_database
@@ -54,6 +55,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(applications_router)
     app.include_router(dashboard_router)
     app.include_router(admin_router)
+    app.include_router(reports_router)
 
     @app.get("/api/health", tags=["health"])
     async def health() -> dict[str, str]:

@@ -10,6 +10,7 @@ import ApplicationDetail from './applications/ApplicationDetail';
 import ApplicationForm from './applications/ApplicationForm';
 import Dashboard from './dashboard/Dashboard';
 import Administration from './admin/Administration';
+import Reports from './reports/Reports';
 import type { User } from './types';
 
 /** Resolve the persisted landing preference, falling back to the role default. */
@@ -33,6 +34,7 @@ function IdentityApp() {
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/applications">Applications</NavLink>
           <NavLink to="/portfolios">Portfolios</NavLink>
+          <NavLink to="/reports">Reports</NavLink>
           {user.role === 'Administrator' && user.permissions.includes('administer') && <NavLink to="/administration">Administration</NavLink>}
           <NavLink to="/profile">My profile</NavLink>
           <button className="quiet" type="button" onClick={() => { void auth.logout(); }}>Sign out</button>
@@ -40,6 +42,7 @@ function IdentityApp() {
       </header>
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/reports" element={<Reports user={user} />} />
         <Route path="/administration" element={<Administration user={user} />} />
         <Route path="/profile" element={<Profile user={user} onUser={auth.setUser} onSessionEnd={() => { auth.setUser(null); navigate('/'); }} />} />
         <Route path="/portfolios" element={<PortfolioList user={user} />} />

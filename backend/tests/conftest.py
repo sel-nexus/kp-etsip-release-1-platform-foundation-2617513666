@@ -65,6 +65,9 @@ async def client(mongo_uri):
                       bootstrap_password="Test-password-1234", seed_on_startup=True)
     app = create_app(config)
     async with app.router.lifespan_context(app):
+        # Existing feature tests deliberately begin with empty inventory; identity remains seeded.
+        await app.state.db.applications.delete_many({"seedKey": {"$regex": "^demo-application:"}})
+        await app.state.db.portfolios.delete_many({"seedKey": {"$regex": "^demo-portfolio:"}})
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as test_client:
             yield test_client, app.state.db
         await app.state.db.client.drop_database(config.mongodb_db)

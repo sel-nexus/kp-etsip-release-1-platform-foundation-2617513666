@@ -36,3 +36,45 @@ async def seed_database(db: AsyncDatabase, settings: Settings) -> None:
             "lastLogin": None, "authSource": "local", "managerName": None, "vendorIndicator": False,
             "defaultLandingPage": "dashboard" if role in ("Administrator", "Executive") else "applications",
             "tokenVersion": 0, "createdAt": now, "updatedAt": now}}, upsert=True)
+    await seed_inventory(db, now)
+
+
+async def seed_inventory(db: AsyncDatabase, now: datetime) -> None:
+    """Insert representative inventory without replacing existing records or edits."""
+    from app.applications.schemas import ApplicationInput
+    from app.portfolios.schemas import PortfolioInput
+
+    portfolios = [
+        ("Payments", "Payment services", "Payments"),
+        ("Customer Platform", "Customer experience services", "Customer"),
+        ("Data & Analytics", "Enterprise data products", "Data"),
+    ]
+    ids = []
+    for name, description, area in portfolios:
+        key = f"demo-portfolio:{name}"
+        existing = await db.portfolios.find_one({"$or": [{"seedKey": key}, {"name": name}]})
+        if not existing:
+            values = PortfolioInput(name=name, owner="Platform team", description=description, productArea=area).model_dump()
+            await db.portfolios.update_one({"name": name}, {"$setOnInsert": {**values, "seedKey": key, "createdAt": now, "updatedAt": now}}, upsert=True)
+            existing = await db.portfolios.find_one({"name": name})
+        ids.append(str(existing["_id"]))
+
+    applications = [
+        ("Payment Gateway", 0, 92, 88, 2, 0, "Low"), ("Settlement Engine", 0, 81, 76, 7, 1, "Medium"),
+        ("Fraud Monitor", 0, 69, 65, 12, 3, "High"), ("Billing Service", 0, 86, 80, 5, 0, "Low"),
+        ("Customer Portal", 1, 90, 85, 3, 0, "Low"), ("Identity Service", 1, 78, 72, 8, 1, "Medium"),
+        ("Case Management", 1, 73, 68, 11, 2, "High"), ("Analytics Warehouse", 2, 84, 77, 6, 0, "Medium"),
+        ("Reporting Pipeline", 2, 88, 83, 4, 0, "Low"), ("Data Catalog", 2, 76, 71, 9, 1, "Medium"),
+    ]
+    for name, index, quality, coverage, defects, critical, risk in applications:
+        key = f"demo-application:{name}"
+        existing = await db.applications.find_one({"$or": [{"seedKey": key}, {"name": name}]})
+        if existing:
+            continue
+        values = ApplicationInput(name=name, portfolioId=ids[index], description=f"Demonstration {name.lower()} application",
+            productArea=portfolios[index][2], businessOwner="Business team", technologyOwner="Engineering team",
+            etsOwner="Quality team", criticality="High", tier=2, technologyStack="Cloud services",
+            applicationHealthScore=quality, qualityScore=quality, automationCoverage=coverage,
+            unitTestCoverage=min(100, coverage + 5), openDefects=defects, openCriticalDefects=critical,
+            riskLevel=risk).model_dump(mode="json")
+        await db.applications.update_one({"name": name}, {"$setOnInsert": {**values, "seedKey": key, "createdAt": now, "updatedAt": now}}, upsert=True)
